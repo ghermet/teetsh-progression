@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant C as Client
+    participant A as Api
+    participant P as ProgrammationsApi
+    participant S as Strapi CMS
+    participant DB as Database
+
+    Note over C,DB: Get Progression Flow
+    
+    C->>A: new Api(authToken)
+    A->>A: Validate token
+    A->>P: new ProgrammationsApi(baseURL, token)
+    
+    C->>P: findOne(progressionId)
+    P->>S: GET /api/programmations/{id}
+    S->>DB: SELECT progression with relations
+    DB-->>S: Progression data + periods + subjects + domains + items
+    S-->>P: ProgressionResponse JSON
+    P->>P: Parse and validate response
+    P-->>C: ProgressionResponse object
+
+    Note over C,DB: Create Progression Flow
+    
+    C->>P: create(progressionData)
+    P->>S: POST /api/progressions
+    S->>DB: INSERT progression
+    DB-->>S: Created progression
+    S-->>P: ProgressionResponse JSON
+    P-->>C: Created progression object
+
+    Note over C,DB: Update Progression Flow
+    
+    C->>P: update(id, updateData)
+    P->>S: PUT /api/progressions/{id}
+    S->>DB: UPDATE progression
+    DB-->>S: Updated progression
+    S-->>P: ProgressionResponse JSON
+    P-->>C: Updated progression object

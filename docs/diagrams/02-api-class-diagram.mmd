@@ -1,0 +1,94 @@
+classDiagram
+    class Api {
+        -string #authToken
+        +string baseURL
+        +ProgrammationsApi programmations
+        +constructor(authToken: string)
+        +validateToken(): boolean
+    }
+
+    class ProgrammationsApi {
+        +string baseURL
+        -string #authToken
+        +constructor(baseURL: string, authToken: string)
+        +findOne(id: string, init?: RequestInit): Promise~ProgressionResponse~
+        +findMany(filters?: ProgressionFilters): Promise~ProgressionListResponse~
+        +create(data: CreateProgressionRequest): Promise~ProgressionResponse~
+        +update(id: string, data: UpdateProgressionRequest): Promise~ProgressionResponse~
+        +delete(id: string): Promise~void~
+    }
+
+    class ProgressionResponse {
+        +ProgressionData data
+        +Record~string, unknown~ meta
+    }
+
+    class ProgressionData {
+        +number id
+        +string name
+        +string shortDescription
+        +string date
+        +string userId
+        +number nbOfUseLanding
+        +number nbOfUseInApp
+        +string schoolyearId
+        +string schoolId
+        +string programmationId
+        +Periode[] periodes
+        +Matiere[] matieres
+        +number columnWidth
+        +string fontSize
+        +string view
+        +boolean invertedRowCol
+        +string niveau
+        +string createdAt
+        +string updatedAt
+        +string publishedAt
+        +string slug
+        +string documentId
+    }
+
+    class Periode {
+        +string id
+        +string name
+        +string color
+        +string endDate
+        +number position
+        +string startDate
+        +string programmationId
+    }
+
+    class Matiere {
+        +string id
+        +string name
+        +string color
+        +number position
+        +string programmationId
+        +Domaine[] domaines
+    }
+
+    class Domaine {
+        +string id
+        +string name
+        +string color
+        +string matiereId
+        +Item[] items
+    }
+
+    class Item {
+        +string id
+        +string value
+        +number y
+        +string domaineId
+        +string periodeId
+        +unknown[] attachments
+    }
+
+    %% Relationships
+    Api --> ProgrammationsApi : "contains"
+    ProgrammationsApi --> ProgressionResponse : "returns"
+    ProgressionResponse --> ProgressionData : "contains"
+    ProgressionData --> Periode : "has many"
+    ProgressionData --> Matiere : "has many"
+    Matiere --> Domaine : "contains"
+    Domaine --> Item : "contains"

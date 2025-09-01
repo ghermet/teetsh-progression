@@ -1,0 +1,29 @@
+flowchart TD
+    A[Raw API Response] --> B[ProgressionResponse]
+    B --> C[ProgressionData]
+    C --> D[Extract Periods]
+    C --> E[Extract Subjects]
+    
+    E --> F[Extract Domains]
+    F --> G[Extract Items]
+    
+    D --> H[Timeline Structure]
+    G --> H
+    
+    H --> I[ProgressionView Component]
+    I --> J[ProgressionTable Rendering]
+    
+    subgraph "Component Layer"
+        I --> K[ProgressionHeader]
+        I --> L[ProgressionTable]
+        I --> M[ProgressionFooter]
+    end
+    
+    subgraph "Data Processing"
+        N[Sort by Position] --> O[Group by Domain]
+        O --> P[Position by Period]
+        P --> Q[Timeline Blocks]
+    end
+    
+    H --> N
+    Q --> J

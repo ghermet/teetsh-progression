@@ -1,0 +1,680 @@
+{
+  "data": {
+    "id": 271,
+    "name": "Progression d'Histoire par semaine pour CM1 et CM2 - Année 2",
+    "shortDescription": "Voici la seconde partie d'une progression d'Histoire spiralaire adaptée pour les classes de CM1 et CM2 (classe simple et/ou double niveau), sur 2 années.",
+    "date": "2023-07-24",
+    "userId": "c1293f59-ce7f-4253-a372-399f81b06700",
+    "nbOfUseLanding": 46,
+    "nbOfUseInApp": 824,
+    "schoolyearId": "33212705-1ac9-451e-8c52-43579092c677",
+    "schoolId": "f01f78f0-4e05-4c80-8b81-cc1a6a42808a",
+    "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3",
+    "periodes": [
+      {
+        "id": "9de100c5-76a4-4377-ae5c-d2ed058a4875",
+        "name": "Semaine 1",
+        "color": "blue-200",
+        "endDate": "2022-09-03T22:00:00Z",
+        "position": 0,
+        "startDate": "2022-08-31T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "ce7b5b19-cf7a-4389-98fd-19bb22bcd8bd",
+        "name": "Semaine 2",
+        "color": "blue-200",
+        "endDate": "2022-09-10T22:00:00Z",
+        "position": 1,
+        "startDate": "2022-09-04T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "9d43d1e9-0a91-4db0-bb9d-2f8442eda0dc",
+        "name": "Semaine 3",
+        "color": "blue-200",
+        "endDate": "2022-09-17T22:00:00Z",
+        "position": 2,
+        "startDate": "2022-09-11T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "2636f929-7b4e-4738-8ae3-87495fdddea5",
+        "name": "Semaine 4",
+        "color": "blue-200",
+        "endDate": "2022-09-24T22:00:00Z",
+        "position": 3,
+        "startDate": "2022-09-18T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "03e8712a-dfdb-41af-befb-7bb381919e31",
+        "name": "Semaine 5",
+        "color": "blue-200",
+        "endDate": "2022-10-01T22:00:00Z",
+        "position": 4,
+        "startDate": "2022-09-25T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "9ff348cf-22a5-4a6d-b0d9-068fb0241a50",
+        "name": "Semaine 6",
+        "color": "blue-200",
+        "endDate": "2022-10-08T22:00:00Z",
+        "position": 5,
+        "startDate": "2022-10-02T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "3405f8ef-3cf5-438d-83bd-ac1b2dd808be",
+        "name": "Semaine 7",
+        "color": "blue-200",
+        "endDate": "2022-10-15T22:00:00Z",
+        "position": 6,
+        "startDate": "2022-10-09T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "776cb0aa-7408-460d-a298-84978dd0fe78",
+        "name": "Semaine 8",
+        "color": "blue-200",
+        "endDate": "2022-10-21T22:00:00Z",
+        "position": 7,
+        "startDate": "2022-10-16T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "1c340fcd-13da-4f64-b9b9-80a3b2cf8d54",
+        "name": "Semaine 1",
+        "color": "green-200",
+        "endDate": "2022-11-12T23:00:00Z",
+        "position": 8,
+        "startDate": "2022-11-06T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "fcb31a20-23ad-44fb-9fcf-84ba4771764c",
+        "name": "Semaine 2",
+        "color": "green-200",
+        "endDate": "2022-11-19T23:00:00Z",
+        "position": 9,
+        "startDate": "2022-11-13T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "4d658828-6951-4bb6-a33f-a435a98030a2",
+        "name": "Semaine 3",
+        "color": "green-200",
+        "endDate": "2022-11-26T23:00:00Z",
+        "position": 10,
+        "startDate": "2022-11-20T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "e8760ceb-858c-4b2f-94ce-27f2e318b9c7",
+        "name": "Semaine 4",
+        "color": "green-200",
+        "endDate": "2022-12-03T23:00:00Z",
+        "position": 11,
+        "startDate": "2022-11-27T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "ebbf90e8-1534-47ce-88a0-623a4a892964",
+        "name": "Semaine 5",
+        "color": "green-200",
+        "endDate": "2022-12-10T23:00:00Z",
+        "position": 12,
+        "startDate": "2022-12-04T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "60273718-8468-4a11-95b9-f65d2739643a",
+        "name": "Semaine 6",
+        "color": "green-200",
+        "endDate": "2022-12-16T23:00:00Z",
+        "position": 13,
+        "startDate": "2022-12-11T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "8737c77d-610c-48b5-a28b-bf42dbc4f19d",
+        "name": "Semaine 1",
+        "color": "yellow-200",
+        "endDate": "2023-01-07T23:00:00Z",
+        "position": 14,
+        "startDate": "2023-01-02T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "05ed783c-1fb5-49ac-a46e-9640b4cc3323",
+        "name": "Semaine 2",
+        "color": "yellow-200",
+        "endDate": "2023-01-14T23:00:00Z",
+        "position": 15,
+        "startDate": "2023-01-08T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "4fdbb2a4-e234-4f31-81d8-f2714f95c092",
+        "name": "Semaine 3",
+        "color": "yellow-200",
+        "endDate": "2023-01-21T23:00:00Z",
+        "position": 16,
+        "startDate": "2023-01-15T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "dae07a01-fc4d-48e9-8c68-f03d8c0c5aa3",
+        "name": "Semaine 4",
+        "color": "yellow-200",
+        "endDate": "2023-01-28T23:00:00Z",
+        "position": 17,
+        "startDate": "2023-01-22T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "2dc62b5d-8ff0-4b46-bd9e-2cf44de14c1a",
+        "name": "Semaine 5",
+        "color": "yellow-200",
+        "endDate": "2023-02-03T23:00:00Z",
+        "position": 18,
+        "startDate": "2023-01-29T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "ca5125ec-94d4-486b-a838-c9a2de9b1828",
+        "name": "Semaine 1",
+        "color": "red-200",
+        "endDate": "2023-02-25T23:00:00Z",
+        "position": 19,
+        "startDate": "2023-02-19T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "45d65e4c-77e1-486a-9f37-42561d289635",
+        "name": "Semaine 2",
+        "color": "red-200",
+        "endDate": "2023-03-04T23:00:00Z",
+        "position": 20,
+        "startDate": "2023-02-26T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "6d011af6-2da2-4470-b969-95d8017b88dd",
+        "name": "Semaine 3",
+        "color": "red-200",
+        "endDate": "2023-03-11T23:00:00Z",
+        "position": 21,
+        "startDate": "2023-03-05T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "6574614b-d2f3-4202-9317-25daa814b115",
+        "name": "Semaine 4",
+        "color": "red-200",
+        "endDate": "2023-03-18T23:00:00Z",
+        "position": 22,
+        "startDate": "2023-03-12T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "f0181bc5-e6d7-4882-ba4b-904e622f646f",
+        "name": "Semaine 5",
+        "color": "red-200",
+        "endDate": "2023-03-25T23:00:00Z",
+        "position": 23,
+        "startDate": "2023-03-19T23:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "4772b853-1129-449f-a128-274758981643",
+        "name": "Semaine 6",
+        "color": "red-200",
+        "endDate": "2023-04-01T22:00:00Z",
+        "position": 24,
+        "startDate": "2023-03-26T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "dd30fda2-c0be-4b98-a834-8b0263747a92",
+        "name": "Semaine 7",
+        "color": "red-200",
+        "endDate": "2023-04-07T22:00:00Z",
+        "position": 25,
+        "startDate": "2023-04-02T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "60fce334-3245-48aa-a938-0c4ebd1b137b",
+        "name": "Semaine 1",
+        "color": "indigo-200",
+        "endDate": "2023-04-29T22:00:00Z",
+        "position": 26,
+        "startDate": "2023-04-23T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "4aaa372d-68b6-4b9b-8968-494ac5d3f774",
+        "name": "Semaine 2",
+        "color": "indigo-200",
+        "endDate": "2023-05-06T22:00:00Z",
+        "position": 27,
+        "startDate": "2023-04-30T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "7bad79e4-ed70-4050-94dc-c4fd0c385db1",
+        "name": "Semaine 3",
+        "color": "indigo-200",
+        "endDate": "2023-05-13T22:00:00Z",
+        "position": 28,
+        "startDate": "2023-05-07T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "a6b19197-2c12-4f93-80b0-3c9986313c7b",
+        "name": "Semaine 4",
+        "color": "indigo-200",
+        "endDate": "2023-05-20T22:00:00Z",
+        "position": 29,
+        "startDate": "2023-05-14T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "1114321a-4365-4c43-a242-03d143eca1ef",
+        "name": "Semaine 5",
+        "color": "indigo-200",
+        "endDate": "2023-05-27T22:00:00Z",
+        "position": 30,
+        "startDate": "2023-05-21T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "cea7e0cf-1db0-4520-9898-903ccf6ea37b",
+        "name": "Semaine 6",
+        "color": "indigo-200",
+        "endDate": "2023-06-03T22:00:00Z",
+        "position": 31,
+        "startDate": "2023-05-28T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "e9161147-9ef6-4b80-bb85-6406dc6bcdad",
+        "name": "Semaine 7",
+        "color": "indigo-200",
+        "endDate": "2023-06-10T22:00:00Z",
+        "position": 32,
+        "startDate": "2023-06-04T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "a7efe0b7-a903-4b2d-9bf1-64829e018ff1",
+        "name": "Semaine 8",
+        "color": "indigo-200",
+        "endDate": "2023-06-17T22:00:00Z",
+        "position": 33,
+        "startDate": "2023-06-11T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "bf7b81aa-174a-4034-bbdc-b9380926f9f0",
+        "name": "Semaine 9",
+        "color": "indigo-200",
+        "endDate": "2023-06-24T22:00:00Z",
+        "position": 34,
+        "startDate": "2023-06-18T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "95d34eba-609f-40e9-8b8d-ce048dc7e002",
+        "name": "Semaine 10",
+        "color": "indigo-200",
+        "endDate": "2023-07-01T22:00:00Z",
+        "position": 35,
+        "startDate": "2023-06-25T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      },
+      {
+        "id": "3ea57d8c-f3d0-4c3a-8054-025a074da612",
+        "name": "Semaine 11",
+        "color": "indigo-200",
+        "endDate": "2023-07-07T22:00:00Z",
+        "position": 36,
+        "startDate": "2023-07-02T22:00:00Z",
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      }
+    ],
+    "matieres": [
+      {
+        "id": "a8d4ddaf-7981-4b83-98c7-506e71c04903",
+        "name": "Histoire et géographie",
+        "color": "blue-300",
+        "domaines": [
+          {
+            "id": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+            "name": "Histoire",
+            "color": "blue-300",
+            "items": [
+              {
+                "y": 0,
+                "id": "c89599e6-cbed-4f2f-871c-0066e9d4f259",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p>François 1er, un protecteur des arts et des lettres</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "1c340fcd-13da-4f64-b9b9-80a3b2cf8d54",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "e268cf68-da5b-4d1d-b420-1033545affc8",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p>Deux guerres mondiales au XXème siècle : la première GM causes.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "60fce334-3245-48aa-a938-0c4ebd1b137b",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "78378676-0624-4f1e-927d-a90b826ec1a7",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 4</strong><strong> : Le temps de la République</strong></p><p><br/></p><p><strong style=\"color: rgb(239, 68, 68);\">Évaluation sommative</strong></p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "f0181bc5-e6d7-4882-ba4b-904e622f646f",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "2c673ebd-54d0-484f-b6e6-c05e209bc263",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p>La ville romaine, la christianisation de la Gaule.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "2636f929-7b4e-4738-8ae3-87495fdddea5",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "b4a6d5cd-5c24-467b-8354-da2f7ddbadaf",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p>Deux guerres mondiales au XXème siècle : la première GM, déroulement.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "4aaa372d-68b6-4b9b-8968-494ac5d3f774",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "4d82eaf5-fe5f-418d-8a39-0e4ae3a33f50",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p>De l&#39;année 1789 à l&#39;exécution du roi Louis XVI : causes </p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "8737c77d-610c-48b5-a28b-bf42dbc4f19d",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "b13e4725-36c8-4cca-9a0e-1a34aafdea68",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p><strong style=\"color: rgb(239, 68, 68);\">Évaluation sommative</strong></p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "3405f8ef-3cf5-438d-83bd-ac1b2dd808be",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 1,
+                "id": "12e602d3-1049-4e91-81b5-a691411a187c",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p><strong style=\"color: rgb(239, 68, 68);\">Évaluation sommative</strong></p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "2dc62b5d-8ff0-4b46-bd9e-2cf44de14c1a",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "4dbd4dcc-7280-47e7-8da8-e2bf014b36e5",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 4</strong><strong> : Le temps de la République</strong></p><p><br/></p><p>Des Républiques, une démocratie: constitution des républiques, les libertés accordées, les devoirs de citoyens.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "6574614b-d2f3-4202-9317-25daa814b115",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "2186b380-108d-470d-9bc3-5e5580e929a5",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p>Charlemagne et son empire</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "9ff348cf-22a5-4a6d-b0d9-068fb0241a50",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "a8f482df-55dd-486a-8503-fd330055c156",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 4</strong><strong> : Le temps de la République</strong></p><p><br/></p><p>L&#39;école primaire au temps de Jules Ferry : Des Républiques, une démocratie.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "45d65e4c-77e1-486a-9f37-42561d289635",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "66a59ad9-5b4c-49c2-ad0c-f00304efe732",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p>De l&#39;année 1789 à l&#39;exécution du roi Louis XVI : causes et déroulement de la Révolution. </p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "4fdbb2a4-e234-4f31-81d8-f2714f95c092",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "6bf352df-0572-4226-9c6e-3ec2ea658a57",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p>La naissance de la République.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "dae07a01-fc4d-48e9-8c68-f03d8c0c5aa3",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "66c5d4fb-312c-49b5-8208-e73eb9842d81",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 4 </strong><strong> : Le temps de la République</strong></p><p><br/></p><p>Des Républiques, une démocratie: constitution des républiques, les libertés accordées, devoirs de citoyens.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "6d011af6-2da2-4470-b969-95d8017b88dd",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "bfb21526-62c2-49bf-b412-8047802a9bba",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p>Les grandes découvertes</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "4d658828-6951-4bb6-a33f-a435a98030a2",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "b01a1cb3-d516-4193-807a-2b15dd137dc7",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p><strong style=\"color: rgb(239, 68, 68);\">Évaluation sommative</strong></p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "cea7e0cf-1db0-4520-9898-903ccf6ea37b",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "48ee2282-a46a-4c6c-a111-e0755f7f1128",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p><strong style=\"color: rgb(239, 68, 68);\">Évaluation sommative</strong></p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "60273718-8468-4a11-95b9-f65d2739643a",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "00a76823-2eff-440e-9a79-e2cecfdf6c0a",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p>La Renaissance : art de la Renaissance et  les châteaux de la Loire.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "fcb31a20-23ad-44fb-9fcf-84ba4771764c",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "00a91634-4065-41dc-96b4-5722f72ce663",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p>Louis XIV, le roi soleil à Versailles : la monarchie absolue, le château de Versailles.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "e8760ceb-858c-4b2f-94ce-27f2e318b9c7",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "f11b54f5-3197-4d58-b37a-785c715bb721",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1 </strong>: <strong>Et avant la France ?</strong></p><p><br/></p><p>Le néolithique : les premiers villages Celtes.</p><p><br/></p><p>Quelles traces d&#39;une occupation ancienne du territoire français ?</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "9de100c5-76a4-4377-ae5c-d2ed058a4875",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "843bfcd1-77a9-4d57-a0dd-d31ac9b903c8",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p>Le néolithique : les premiers villages Romains.</p><p><br/></p><p>Quelles traces d&#39;une occupation ancienne du territoire français ?</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "9d43d1e9-0a91-4db0-bb9d-2f8442eda0dc",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "98014250-a937-49f8-8c8c-ca95a550dc39",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p>Deux guerres mondiales au XXème siècle : la première GM ses conséquences et la montée des extrêmes.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "7bad79e4-ed70-4050-94dc-c4fd0c385db1",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "2841294b-b201-4553-be56-ca538d5001f4",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p>Deux guerres mondiales au XXème siècle : la première GM collaboration et résistance.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "a6b19197-2c12-4f93-80b0-3c9986313c7b",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "c65db62f-a287-46cc-910a-2476df03c187",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 6</strong><strong> : La France des guerres mondiales à l&#39;UE</strong></p><p><br/></p><p>Deux guerres mondiales au XXème siècle : la première GM et la victoire des alliés.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "1114321a-4365-4c43-a242-03d143eca1ef",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "8e6a336f-0965-41b7-9c61-4e1581b7ba8d",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 2</strong><strong> : Le temps des rois</strong></p><p><br/></p><p>Louis XIV, le roi soleil à Versailles : la monarchie absolue, le château de Versailles.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "ebbf90e8-1534-47ce-88a0-623a4a892964",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "b201421a-4a9d-4e7e-a0f8-0dc517105115",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p>Clovis et Charlemagne dans la continuité de l&#39;empire romain : Clovis roi des Francs.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "03e8712a-dfdb-41af-befb-7bb381919e31",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "28a360d4-0cb2-4b11-8505-a369188da736",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 1</strong><strong> : Et avant la France ?</strong></p><p><br/></p><p>Le néolithique : les premiers villages Gaulois.</p><p><br/></p><p>Quelles traces d&#39;une occupation ancienne du territoire français ?</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "ce7b5b19-cf7a-4389-98fd-19bb22bcd8bd",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "217324aa-1179-4ba9-98cc-c3961b28c75b",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p>De l&#39;année 1789 à l&#39;exécution du roi Louis XVI :  déroulement de la Révolution.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "05ed783c-1fb5-49ac-a46e-9640b4cc3323",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "e1b365f4-0808-4e2f-a59c-ab31374b99fd",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 3</strong><strong> : Le temps de la Révolution et de l&#39;empire</strong></p><p><br/></p><p>Naissance de la République (si besoin) ou Evaluation si thème terminé.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "2dc62b5d-8ff0-4b46-bd9e-2cf44de14c1a",
+                "FicheDePrep": null,
+                "attachments": []
+              },
+              {
+                "y": 0,
+                "id": "8c23ef55-387f-4a61-8ffc-c5472e8aa0fc",
+                "value": "<p><strong style=\"text-decoration: underline;\">Thème 4</strong><strong> : Le temps de la République</strong></p><p><br/></p><p>L&#39;école primaire au temps de Jules Ferry : la scolarisation en France, les lois Ferry.</p>",
+                "Sequence": null,
+                "domaineId": "6205c5b1-99ea-47a5-9f0c-9361f899ca72",
+                "periodeId": "ca5125ec-94d4-486b-a838-c9a2de9b1828",
+                "FicheDePrep": null,
+                "attachments": []
+              }
+            ],
+            "matiereId": "a8d4ddaf-7981-4b83-98c7-506e71c04903"
+          }
+        ],
+        "position": 0,
+        "programmationId": "ac3c4d13-ef8b-4d01-8934-420a281748b3"
+      }
+    ],
+    "columnWidth": 0,
+    "fontSize": "",
+    "view": "week",
+    "invertedRowCol": true,
+    "niveau": "CM2",
+    "createdAt": "2024-05-15T20:28:19.946Z",
+    "updatedAt": "2025-05-05T14:10:39.567Z",
+    "publishedAt": "2025-05-06T09:32:24.829Z",
+    "onePageMatiere": null,
+    "slug": "progression-histoire-cm1-cm2-annee-2",
+    "documentId": "wwdnw9553da0cdypjq2t9p3f"
+  },
+  "meta": {}
+}

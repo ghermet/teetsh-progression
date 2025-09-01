@@ -1,0 +1,25 @@
+graph LR
+    subgraph "Cache Layers"
+        A[Browser Cache]
+        B[CDN Cache]
+        C[API Gateway Cache]
+        D[Redis Cache]
+        E[Database Query Cache]
+    end
+    
+    F[Client Request] --> A
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> G[Database]
+    
+    H[Cache Invalidation] --> D
+    H --> C
+    H --> B
+    
+    subgraph "TTL Settings"
+        I["Static Data: 24h"]
+        J["Progression Data: 1h"]
+        K["User Data: 15min"]
+    end
