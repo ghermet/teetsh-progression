@@ -107,10 +107,10 @@ test.describe('Programmation Timeline', () => {
       'Le néolithique : les premiers villages Celtes.'
     );
 
-    // Verify the content has proper styling - content blocks use inline styles, not CSS classes
+    // Verify the content has proper styling - content blocks use border styles
     await expect(poms.programmation.firstContentBlock).toHaveAttribute(
       'style',
-      /background/
+      /border/
     );
     await expect(poms.programmation.firstContentBlock).toHaveClass(
       /rounded-md/
@@ -123,12 +123,14 @@ test.describe('Programmation Timeline', () => {
     await expect(poms.programmation.table).toBeVisible();
 
     // Check if the matiere header has sticky positioning
-    await expect(poms.programmation.matiereHeader).toHaveClass(/sticky/);
+    await expect(poms.programmation.matiereHeader).toHaveClass(/min-sm:sticky/);
     await expect(poms.programmation.matiereHeader).toHaveClass(/left-0/);
     await expect(poms.programmation.matiereHeader).toHaveClass(/z-10/);
 
     // Check if the matiere row headers have sticky positioning
-    await expect(poms.programmation.firstMatiereRow).toHaveClass(/sticky/);
+    await expect(poms.programmation.firstMatiereRow).toHaveClass(
+      /min-sm:sticky/
+    );
     await expect(poms.programmation.firstMatiereRow).toHaveClass(/left-0/);
     await expect(poms.programmation.firstMatiereRow).toHaveClass(/z-10/);
   });
@@ -236,12 +238,12 @@ test.describe('Programmation Timeline', () => {
       /background:/
     );
 
-    // Check if content blocks have background colors
+    // Check if content blocks have border colors
     const contentBlocksCount = await poms.programmation.getContentBlocksCount();
     if (contentBlocksCount > 0) {
       await expect(poms.programmation.firstContentBlock).toHaveAttribute(
         'style',
-        /background:/
+        /border:/
       );
     }
   });

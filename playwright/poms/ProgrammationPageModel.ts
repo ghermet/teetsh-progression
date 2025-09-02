@@ -45,10 +45,10 @@ export class ProgrammationPageModel {
       .getByRole('columnheader')
       .filter({ hasNot: this.page.getByText('Matières') });
     this.stickyColumnHeader = this.page.locator(
-      'th[scope="col"].sticky.left-0.z-10'
+      'th[scope="col"].min-sm\\:sticky'
     );
     this.stickyRowHeaders = this.page.locator(
-      'th[scope="row"].sticky.left-0.z-10'
+      'th[scope="row"].min-sm\\:sticky'
     );
     this.firstMatiereRow = this.page.getByRole('rowheader').first();
     this.contentBlocks = this.page.getByRole('listitem');

@@ -67,23 +67,14 @@ exports[`ProgrammationView > matches snapshot 1`] = `
           <thead>
             <tr>
               <th
-                class="sticky left-0 z-10 w-48 sm:w-56 md:w-64 bg-slate-50 border-r border-slate-200 h-12 px-2 sm:px-3 text-center"
+                class="min-sm:sticky left-0 z-10 w-48 sm:w-56 md:w-64 bg-slate-50 border-r border-slate-200 h-12 px-2 sm:px-3 text-center"
                 scope="col"
               >
                 <span
                   class="text-slate-700 text-xs sm:text-sm font-medium"
                   data-testid="matieres-header"
                 >
-                  <span
-                    class="hidden sm:inline"
-                  >
-                    Matières
-                  </span>
-                  <span
-                    class="sm:hidden"
-                  >
-                    Mat.
-                  </span>
+                  Matières
                 </span>
               </th>
               <th
@@ -141,47 +132,34 @@ exports[`ProgrammationView > matches snapshot 1`] = `
           <tbody>
             <tr>
               <th
-                class="sticky left-0 z-10 flex flex-col w-48 sm:w-56 md:w-64 h-44 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
+                class="flex flex-col items-center gap-1 w-full sm:gap-2 min-h-0 min-sm:sticky left-0 z-10  sm:w-56 md:w-64 h-64 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
                 scope="row"
               >
-                <div
-                  class="flex flex-col items-center gap-1 sm:gap-2 w-full min-h-0"
+                <span
+                  class="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
+                  style="background: var(--color-blue);"
+                />
+                <span
+                  class="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
+                  data-testid="domaine-name"
+                  title="Numbers"
                 >
-                  <span
-                    class="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
-                    style="background: var(--color-blue);"
-                  />
-                  <span
-                    class="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
-                    data-testid="domaine-name"
-                    title="Numbers"
-                  >
-                    Numbers
-                  </span>
-                  <span
-                    class="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
-                    data-testid="matiere-name"
-                    title="Math"
-                  >
-                    Math
-                  </span>
-                </div>
-                <div
-                  class="text-slate-500 text-xs mt-auto"
+                  Numbers
+                </span>
+                <span
+                  class="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
+                  data-testid="matiere-name"
+                  title="Math"
+                >
+                  Math
+                </span>
+                <span
+                  class="text-slate-500 text-xs"
                   data-testid="domaine-count"
                 >
-                  <span
-                    class="hidden sm:inline"
-                  >
-                    2
-                     semaines
-                  </span>
-                  <span
-                    class="sm:hidden"
-                  >
-                    2
-                  </span>
-                </div>
+                  2
+                   semaines
+                </span>
               </th>
               <td
                 class="min-w-48 sm:min-w-56 md:min-w-64 border-r border-slate-200 align-top p-1 overflow-auto bg-slate-50"
@@ -214,47 +192,34 @@ exports[`ProgrammationView > matches snapshot 1`] = `
             </tr>
             <tr>
               <th
-                class="sticky left-0 z-10 flex flex-col w-48 sm:w-56 md:w-64 h-44 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
+                class="flex flex-col items-center gap-1 w-full sm:gap-2 min-h-0 min-sm:sticky left-0 z-10  sm:w-56 md:w-64 h-64 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
                 scope="row"
               >
-                <div
-                  class="flex flex-col items-center gap-1 sm:gap-2 w-full min-h-0"
+                <span
+                  class="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
+                  style="background: var(--color-green);"
+                />
+                <span
+                  class="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
+                  data-testid="domaine-name"
+                  title="Reading"
                 >
-                  <span
-                    class="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
-                    style="background: var(--color-green);"
-                  />
-                  <span
-                    class="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
-                    data-testid="domaine-name"
-                    title="Reading"
-                  >
-                    Reading
-                  </span>
-                  <span
-                    class="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
-                    data-testid="matiere-name"
-                    title="French"
-                  >
-                    French
-                  </span>
-                </div>
-                <div
-                  class="text-slate-500 text-xs mt-auto"
+                  Reading
+                </span>
+                <span
+                  class="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
+                  data-testid="matiere-name"
+                  title="French"
+                >
+                  French
+                </span>
+                <span
+                  class="text-slate-500 text-xs"
                   data-testid="domaine-count"
                 >
-                  <span
-                    class="hidden sm:inline"
-                  >
-                    1
-                     semaines
-                  </span>
-                  <span
-                    class="sm:hidden"
-                  >
-                    1
-                  </span>
-                </div>
+                  1
+                   semaines
+                </span>
               </th>
               <td
                 class="min-w-48 sm:min-w-56 md:min-w-64 border-r border-slate-200 align-top p-1 overflow-auto bg-slate-50"

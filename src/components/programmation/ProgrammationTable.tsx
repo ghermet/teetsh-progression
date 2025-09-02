@@ -68,14 +68,13 @@ function ProgrammationTableHead({ periodes }: { periodes: Periode[] }) {
       <tr>
         <th
           scope="col"
-          className="sticky left-0 z-10 w-48 sm:w-56 md:w-64 bg-slate-50 border-r border-slate-200 h-12 px-2 sm:px-3 text-center"
+          className="min-sm:sticky left-0 z-10 w-48 sm:w-56 md:w-64 bg-slate-50 border-r border-slate-200 h-12 px-2 sm:px-3 text-center"
         >
           <span
             className="text-slate-700 text-xs sm:text-sm font-medium"
             data-testid="matieres-header"
           >
-            <span className="hidden sm:inline">Matières</span>
-            <span className="sm:hidden">Mat.</span>
+            Matières
           </span>
         </th>
         {sortedPeriodes.map((periode) => {
@@ -153,37 +152,32 @@ function ProgrammationTableBody({
         <tr key={dom.id}>
           <th
             scope="row"
-            className="sticky left-0 z-10 flex flex-col w-48 sm:w-56 md:w-64 h-44 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
+            className="flex flex-col items-center gap-1 w-full sm:gap-2 min-h-0 min-sm:sticky left-0 z-10  sm:w-56 md:w-64 h-64 bg-slate-50 border-r border-t border-slate-200 px-2 sm:px-3 py-2 text-center select-none"
           >
-            <div className="flex flex-col items-center gap-1 sm:gap-2 w-full min-h-0">
-              <span
-                className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
-                style={{ background: `var(--color-${dom.color})` }}
-              />
-              <span
-                className="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
-                data-testid="domaine-name"
-                title={dom.name}
-              >
-                {dom.name}
-              </span>
-              <span
-                className="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
-                data-testid="matiere-name"
-                title={mat.name}
-              >
-                {mat.name}
-              </span>
-            </div>
-            <div
-              className="text-slate-500 text-xs mt-auto"
+            <span
+              className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm flex-shrink-0"
+              style={{ background: `var(--color-${dom.color})` }}
+            />
+            <span
+              className="text-slate-800 text-xs sm:text-sm font-medium text-center leading-tight overflow-hidden line-clamp-2"
+              data-testid="domaine-name"
+              title={dom.name}
+            >
+              {dom.name}
+            </span>
+            <span
+              className="text-slate-500 text-xs font-light text-center leading-tight overflow-hidden line-clamp-2"
+              data-testid="matiere-name"
+              title={mat.name}
+            >
+              {mat.name}
+            </span>
+            <span
+              className="text-slate-500 text-xs"
               data-testid="domaine-count"
             >
-              <span className="hidden sm:inline">
-                {dom.items.length} semaines
-              </span>
-              <span className="sm:hidden">{dom.items.length}</span>
-            </div>
+              {dom.items.length} semaines
+            </span>
           </th>
 
           {sortedPeriodes.map((periode, periodeIndex) => {
