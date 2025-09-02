@@ -6,22 +6,22 @@ graph TB
         D[Search Indexes]
     end
     
-    A --> A1["progressions(id)"]
+    A --> A1["programmations(id)"]
     A --> A2["periods(id)"]
     A --> A3["subjects(id)"]
     A --> A4["domains(id)"]
     A --> A5["learning_items(id)"]
     
-    B --> B1["periods(progression_id)"]
-    B --> B2["subjects(progression_id)"]
+    B --> B1["periods(programmation_id)"]
+    B --> B2["subjects(programmation_id)"]
     B --> B3["domains(subject_id)"]
     B --> B4["learning_items(domain_id)"]
     B --> B5["learning_items(period_id)"]
     
     C --> C1["learning_items(domain_id, period_id)"]
-    C --> C2["periods(progression_id, position)"]
-    C --> C3["subjects(progression_id, position)"]
+    C --> C2["periods(programmation_id, position)"]
+    C --> C3["subjects(programmation_id, position)"]
     
-    D --> D1["progressions(name) GIN"]
+    D --> D1["programmations(name) GIN"]
     D --> D2["learning_items(content) GIN"]
-    D --> D3["progressions(level, status)"]
+    D --> D3["programmations(level, status)"]

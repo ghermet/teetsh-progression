@@ -1,10 +1,10 @@
 import type { Page } from '@playwright/test';
-import { ProgressionPageModel } from './ProgressionPageModel';
+import { ProgrammationPageModel } from './ProgrammationPageModel';
 
 export class PageObjectModels {
-  readonly progression: ProgressionPageModel;
+  readonly programmation: ProgrammationPageModel;
 
   constructor(page: Page) {
-    this.progression = new ProgressionPageModel(page);
+    this.programmation = new ProgrammationPageModel(page);
   }
 }

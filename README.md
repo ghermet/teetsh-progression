@@ -1,4 +1,4 @@
-# Teetsh Progression Application
+# Teetsh Programmation Application
 
 See [./CLAUDE.md](./CLAUDE.md) for details on how this project was created and its architecture.
 

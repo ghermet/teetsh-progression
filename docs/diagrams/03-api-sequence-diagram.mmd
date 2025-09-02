@@ -5,34 +5,34 @@ sequenceDiagram
     participant S as Strapi CMS
     participant DB as Database
 
-    Note over C,DB: Get Progression Flow
+    Note over C,DB: Get Programmation Flow
     
     C->>A: new Api(authToken)
     A->>A: Validate token
     A->>P: new ProgrammationsApi(baseURL, token)
     
-    C->>P: findOne(progressionId)
+    C->>P: findOne(programmationId)
     P->>S: GET /api/programmations/{id}
-    S->>DB: SELECT progression with relations
-    DB-->>S: Progression data + periods + subjects + domains + items
-    S-->>P: ProgressionResponse JSON
+    S->>DB: SELECT programmation with relations
+    DB-->>S: Programmation data + periods + subjects + domains + items
+    S-->>P: ProgrammationResponse JSON
     P->>P: Parse and validate response
-    P-->>C: ProgressionResponse object
+    P-->>C: ProgrammationResponse object
 
-    Note over C,DB: Create Progression Flow
+    Note over C,DB: Create Programmation Flow
     
-    C->>P: create(progressionData)
-    P->>S: POST /api/progressions
-    S->>DB: INSERT progression
-    DB-->>S: Created progression
-    S-->>P: ProgressionResponse JSON
-    P-->>C: Created progression object
+    C->>P: create(programmationData)
+    P->>S: POST /api/programmations
+    S->>DB: INSERT programmation
+    DB-->>S: Created programmation
+    S-->>P: ProgrammationResponse JSON
+    P-->>C: Created programmation object
 
-    Note over C,DB: Update Progression Flow
+    Note over C,DB: Update Programmation Flow
     
     C->>P: update(id, updateData)
-    P->>S: PUT /api/progressions/{id}
-    S->>DB: UPDATE progression
-    DB-->>S: Updated progression
-    S-->>P: ProgressionResponse JSON
-    P-->>C: Updated progression object
+    P->>S: PUT /api/programmations/{id}
+    S->>DB: UPDATE programmation
+    DB-->>S: Updated programmation
+    S-->>P: ProgrammationResponse JSON
+    P-->>C: Updated programmation object

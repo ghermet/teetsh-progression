@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Schedule Interface Mockups</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #f5f7fa;
+        line-height: 1.4;
+      }
+
+      .mockup-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .view-selector {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .view-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: white;
+      }
+
+      .tab.active {
+        background: #1a365d;
+        color: white;
+        border-color: #1a365d;
+      }
+
+      .tab:hover:not(.active) {
+        background: #f8f9fa;
+      }
+
+      .view {
+        display: none;
+      }
+
+      .view.active {
+        display: block;
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .breadcrumb-separator {
+        color: #ccc;
+      }
+
+      .schedule-header {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .schedule-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a365d;
+      }
+
+      .view-controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: white;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .btn:hover {
+        background: #f8f9fa;
+      }
+
+      .btn.primary {
+        background: #1a365d;
+        color: white;
+        border-color: #1a365d;
+      }
+
+      /* Timeline View */
+      .timeline-container {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .period-header {
+        background: #e2e8f0;
+        padding: 12px 20px;
+        border-bottom: 2px solid #cbd5e0;
+        font-weight: 600;
+        color: #2d3748;
+      }
+
+      .weeks-grid {
+        display: grid;
+        grid-template-columns: 200px repeat(6, 1fr);
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .week-header {
+        padding: 12px 8px;
+        border-right: 1px solid #e2e8f0;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+        background: #f7fafc;
+      }
+
+      .topic-row {
+        display: contents;
+      }
+
+      .topic-label {
+        padding: 16px;
+        border-right: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .topic-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .week-cell {
+        padding: 8px;
+        border-right: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .domain-tag {
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .add-btn {
+        color: #666;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        border: 1px dashed #ccc;
+        text-align: center;
+        transition: all 0.2s;
+      }
+
+      .add-btn:hover {
+        background: #f8f9fa;
+        border-color: #999;
+      }
+
+      /* Hierarchical View */
+      .hierarchical-container {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .topic-card {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+
+      .topic-header {
+        padding: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.2s;
+      }
+
+      .topic-header:hover {
+        background: #f8f9fa;
+      }
+
+      .topic-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .topic-stats {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .domains-container {
+        padding: 0 16px 16px;
+        border-top: 1px solid #f1f5f9;
+        background: #f8fafc;
+      }
+
+      .domains-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .domain-card {
+        padding: 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        background: white;
+      }
+
+      .domain-title {
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .week-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 8px;
+      }
+
+      .week-tag {
+        padding: 2px 6px;
+        background: #e2e8f0;
+        border-radius: 4px;
+        font-size: 10px;
+        color: #4a5568;
+      }
+
+      /* Compact View */
+      .compact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .week-card {
+        background: white;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .week-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .week-title {
+        font-weight: 600;
+        color: #2d3748;
+      }
+
+      .week-dates {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .topic-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .topic-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 6px;
+        background: #f8fafc;
+      }
+
+      .topic-item:hover {
+        background: #e2e8f0;
+      }
+
+      /* Color schemes */
+      .color-orange {
+        background-color: #fed7aa;
+        color: #9a3412;
+      }
+
+      .color-purple {
+        background-color: #e9d5ff;
+        color: #6b21a8;
+      }
+
+      .color-pink {
+        background-color: #fce7f3;
+        color: #be185d;
+      }
+
+      .color-green {
+        background-color: #d1fae5;
+        color: #065f46;
+      }
+
+      .color-blue {
+        background-color: #dbeafe;
+        color: #1e40af;
+      }
+
+      .expand-icon {
+        transition: transform 0.2s;
+      }
+
+      .expanded .expand-icon {
+        transform: rotate(90deg);
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mockup-container">
+      <div class="view-selector">
+        <div class="breadcrumb">
+          <span>Année scolaire 2025-2026</span>
+          <span class="breadcrumb-separator">></span>
+          <span>Lycée Joffre</span>
+          <span class="breadcrumb-separator">></span>
+          <span>Période 1 (Sept-Oct)</span>
+        </div>
+
+        <div class="schedule-header">
+          <h1 class="schedule-title">Programmation - Programmation</h1>
+          <div class="view-controls">
+            <button class="btn">Export</button>
+            <button class="btn">Importer</button>
+            <button class="btn primary">+ Nouveau sujet</button>
+          </div>
+        </div>
+
+        <div class="view-tabs">
+          <div class="tab active" onclick="showView('timeline')">
+            Vue Timeline
+          </div>
+          <div class="tab" onclick="showView('hierarchical')">
+            Vue Hiérarchique
+          </div>
+          <div class="tab" onclick="showView('compact')">Vue Compacte</div>
+          <div class="tab" onclick="showView('planning')">Vue Planning</div>
+        </div>
+      </div>
+
+      <!-- Timeline View -->
+      <div id="timeline" class="view active">
+        <div class="timeline-container">
+          <div class="period-header">Période 1 - Septembre à Octobre 2025</div>
+
+          <div class="weeks-grid">
+            <div class="week-header">Sujets</div>
+            <div class="week-header">
+              Semaine 1<br /><small>01-07 sept</small>
+            </div>
+            <div class="week-header">
+              Semaine 2<br /><small>08-14 sept</small>
+            </div>
+            <div class="week-header">
+              Semaine 3<br /><small>15-21 sept</small>
+            </div>
+            <div class="week-header">
+              Semaine 4<br /><small>22-28 sept</small>
+            </div>
+            <div class="week-header">
+              Semaine 5<br /><small>29 sept-05 oct</small>
+            </div>
+            <div class="week-header">
+              Semaine 6<br /><small>06-12 oct</small>
+            </div>
+          </div>
+
+          <div class="topic-row">
+            <div class="topic-label">
+              <div class="topic-color" style="background: #fed7aa"></div>
+              La planète Terre, l'environnement et l'action humaine
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-orange">Introduction générale</div>
+              <div class="domain-tag color-orange">Écosystèmes</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-orange">Biodiversité</div>
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-orange">Impact humain</div>
+              <div class="domain-tag color-orange">Pollution</div>
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-orange">Solutions durables</div>
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+          </div>
+
+          <div class="topic-row">
+            <div class="topic-label">
+              <div class="topic-color" style="background: #e9d5ff"></div>
+              Le corps humain et la santé
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-purple">Anatomie de base</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-purple">Système digestif</div>
+              <div class="domain-tag color-purple">Nutrition</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-purple">Système circulatoire</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-purple">Exercice et santé</div>
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+          </div>
+
+          <div class="topic-row">
+            <div class="topic-label">
+              <div class="topic-color" style="background: #fce7f3"></div>
+              Le vivant et son évolution
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="add-btn">+ Ajouter</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-pink">Théorie évolution</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-pink">Sélection naturelle</div>
+              <div class="domain-tag color-pink">Adaptation</div>
+            </div>
+            <div class="week-cell">
+              <div class="domain-tag color-pink">Classification</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hierarchical View -->
+      <div id="hierarchical" class="view">
+        <div class="hierarchical-container">
+          <div class="topic-card">
+            <div class="topic-header" onclick="toggleExpand(this)">
+              <div class="topic-info">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div class="topic-title">
+                    La planète Terre, l'environnement et l'action humaine
+                  </div>
+                  <div class="topic-stats">
+                    <span>5 domaines</span>
+                    <span>4 semaines actives</span>
+                  </div>
+                </div>
+              </div>
+              <div class="expand-icon">▶</div>
+            </div>
+            <div class="domains-container hidden">
+              <div class="domains-grid">
+                <div class="domain-card">
+                  <div class="domain-title">Introduction générale</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S1</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Écosystèmes</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S1</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Biodiversité</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S2</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Impact humain</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S3</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Solutions durables</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-header" onclick="toggleExpand(this)">
+              <div class="topic-info">
+                <div class="topic-color" style="background: #e9d5ff"></div>
+                <div>
+                  <div class="topic-title">Le corps humain et la santé</div>
+                  <div class="topic-stats">
+                    <span>4 domaines</span>
+                    <span>4 semaines actives</span>
+                  </div>
+                </div>
+              </div>
+              <div class="expand-icon">▶</div>
+            </div>
+            <div class="domains-container hidden">
+              <div class="domains-grid">
+                <div class="domain-card">
+                  <div class="domain-title">Anatomie de base</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S2</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Système digestif</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S3</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Système circulatoire</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S4</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Exercice et santé</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <div class="topic-header" onclick="toggleExpand(this)">
+              <div class="topic-info">
+                <div class="topic-color" style="background: #fce7f3"></div>
+                <div>
+                  <div class="topic-title">Le vivant et son évolution</div>
+                  <div class="topic-stats">
+                    <span>3 domaines</span>
+                    <span>3 semaines actives</span>
+                  </div>
+                </div>
+              </div>
+              <div class="expand-icon">▶</div>
+            </div>
+            <div class="domains-container hidden">
+              <div class="domains-grid">
+                <div class="domain-card">
+                  <div class="domain-title">Théorie de l'évolution</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S4</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Sélection naturelle</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S5</span>
+                  </div>
+                </div>
+                <div class="domain-card">
+                  <div class="domain-title">Classification</div>
+                  <div class="week-tags">
+                    <span class="week-tag">S6</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compact View -->
+      <div id="compact" class="view">
+        <div class="compact-grid">
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 1</div>
+              <div class="week-dates">01-07 Sept</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div style="font-weight: 500">Introduction générale</div>
+                  <div style="font-size: 12px; color: #666">Planète Terre</div>
+                </div>
+              </div>
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div style="font-weight: 500">Écosystèmes</div>
+                  <div style="font-size: 12px; color: #666">Planète Terre</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 2</div>
+              <div class="week-dates">08-14 Sept</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div style="font-weight: 500">Biodiversité</div>
+                  <div style="font-size: 12px; color: #666">Planète Terre</div>
+                </div>
+              </div>
+              <div class="topic-item">
+                <div class="topic-color" style="background: #e9d5ff"></div>
+                <div>
+                  <div style="font-weight: 500">Anatomie de base</div>
+                  <div style="font-size: 12px; color: #666">Corps humain</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 3</div>
+              <div class="week-dates">15-21 Sept</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div style="font-weight: 500">Impact humain</div>
+                  <div style="font-size: 12px; color: #666">Planète Terre</div>
+                </div>
+              </div>
+              <div class="topic-item">
+                <div class="topic-color" style="background: #e9d5ff"></div>
+                <div>
+                  <div style="font-weight: 500">Système digestif</div>
+                  <div style="font-size: 12px; color: #666">Corps humain</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 4</div>
+              <div class="week-dates">22-28 Sept</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #e9d5ff"></div>
+                <div>
+                  <div style="font-weight: 500">Système circulatoire</div>
+                  <div style="font-size: 12px; color: #666">Corps humain</div>
+                </div>
+              </div>
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fce7f3"></div>
+                <div>
+                  <div style="font-weight: 500">Théorie évolution</div>
+                  <div style="font-size: 12px; color: #666">Le vivant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 5</div>
+              <div class="week-dates">29 Sept-05 Oct</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fed7aa"></div>
+                <div>
+                  <div style="font-weight: 500">Solutions durables</div>
+                  <div style="font-size: 12px; color: #666">Planète Terre</div>
+                </div>
+              </div>
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fce7f3"></div>
+                <div>
+                  <div style="font-weight: 500">Sélection naturelle</div>
+                  <div style="font-size: 12px; color: #666">Le vivant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="week-card">
+            <div class="week-card-header">
+              <div class="week-title">Semaine 6</div>
+              <div class="week-dates">06-12 Oct</div>
+            </div>
+            <div class="topic-list">
+              <div class="topic-item">
+                <div class="topic-color" style="background: #fce7f3"></div>
+                <div>
+                  <div style="font-weight: 500">Classification</div>
+                  <div style="font-size: 12px; color: #666">Le vivant</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Planning View -->
+      <div id="planning" class="view">
+        <div
+          style="
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px">
+            <div>
+              <h3 style="margin-bottom: 16px; color: #2d3748">
+                Charge de travail par semaine
+              </h3>
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 8px;
+                    background: #f8fafc;
+                    border-radius: 4px;
+                  "
+                >
+                  <span>Semaine 1</span>
+                  <div style="display: flex; gap: 4px">
+                    <div
+                      style="
+                        width: 20px;
+                        height: 16px;
+                        background: #fed7aa;
+                        border-radius: 2px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 20px;
+                        height: 16px;
+                        background: #fed7aa;
+                        border-radius: 2px;
+                      "
+                    ></div>
+                    <span style="font-size: 12px; color: #666">2 sujets</span>
+                  </div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 8px;
+                    background: #f8fafc;
+                    border-radius: 4px;
+                  "
+                >
+                  <span>Semaine 2</span>
+                  <div style="display: flex; gap: 4px">
+                    <div
+                      style="
+                        width: 20px;
+                        height: 16px;
+                        background: #fed7aa;
+                        border-radius: 2px;
+                      "
+                    ></div>
+                    <div
+                      style="
+                        width: 20px;
+                        height: 16px;
+                        background: #e9d5ff;
+                        border-radius: 2px;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

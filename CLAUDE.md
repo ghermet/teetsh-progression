@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React educational progression visualization application built with TanStack Router and Vite. The application displays school curriculum progressions organized by subjects (matières), domains (domaines), and time periods (periodes). It renders timeline-style tables showing educational content across different weeks/periods.
+This is a React educational programmation visualization application built with TanStack Router and Vite. The application displays school curriculum progressions organized by subjects (matières), domains (domaines), and time periods (periodes). It renders timeline-style tables showing educational content across different weeks/periods.
 
 ## Development Commands
 
@@ -37,14 +37,14 @@ This is a React educational progression visualization application built with Tan
 
 The application follows this data flow:
 
-1. **Route Loading**: `/progressions/$id` route loads progression data via API
-2. **Data Transformation**: `ProgressionView` transforms hierarchical data (Matière → Domaine → Items) into timeline blocks
+1. **Route Loading**: `/progressions/$id` route loads programmation data via API
+2. **Data Transformation**: `ProgrammationView` transforms hierarchical data (Matière → Domaine → Items) into timeline blocks
 3. **Component Rendering**: Data flows through Header → Table → Footer components
 4. **Timeline Visualization**: Items are displayed as blocks across time periods in a table format
 
 ### Domain Model
 
-The application works with educational progression data structured as:
+The application works with educational programmation data structured as:
 
 - **ProgressionData**: Top-level container with metadata and content
 - **Matière**: Subject areas (e.g., "Histoire et géographie")
@@ -52,14 +52,14 @@ The application works with educational progression data structured as:
 - **Item**: Individual content pieces with HTML values, linked to specific periods
 - **Période**: Time periods (weeks/months) with dates and colors
 
-### Progression Components Architecture
+### Programmation Components Architecture
 
-Located in `src/components/progression/`, these components form the core visualization:
+Located in `src/components/programmation/`, these components form the core visualization:
 
-- **ProgressionView**: Main orchestrator that transforms API data into renderable format
-- **ProgressionHeader**: Displays progression metadata (name, level, date)
-- **ProgressionTable**: Renders timeline table with subjects as rows and periods as columns
-- **ProgressionFooter**: Shows summary statistics (period count, unique domains)
+- **ProgrammationView**: Main orchestrator that transforms API data into renderable format
+- **ProgrammationHeader**: Displays programmation metadata (name, level, date)
+- **ProgrammationTable**: Renders timeline table with subjects as rows and periods as columns
+- **ProgrammationFooter**: Shows summary statistics (period count, unique domains)
 - **Types**: Defines interfaces for data transformation between API format and UI components
 
 The transformation logic converts the hierarchical API structure into timeline blocks, where each item becomes a visual block positioned by period and grouped by domain.
@@ -68,14 +68,14 @@ The transformation logic converts the hierarchical API structure into timeline b
 
 - **Base URL**: `https://strapi.teetsh.com/api`
 - **Authentication**: Token-based via `Api` class
-- **Data Source**: Strapi CMS providing progression data
+- **Data Source**: Strapi CMS providing programmation data
 - **Route Integration**: TanStack Router loader fetches data before component rendering
-- **Error Handling**: Dedicated `ProgressionError` component for failed loads
+- **Error Handling**: Dedicated `ProgrammationError` component for failed loads
 
 ### Routing System
 
 - Uses TanStack Router with file-based routing
-- Key routes: `/` (index), `/progressions/$id` (dynamic progression view)
+- Key routes: `/` (index), `/progressions/$id` (dynamic programmation view)
 - Router context provides `queryClient` and `api` to all routes
 - Root layout in `src/routes/__root.tsx` includes development tools
 - Auto-generated route tree in `src/routeTree.gen.ts`
@@ -93,9 +93,9 @@ The transformation logic converts the hierarchical API structure into timeline b
 
 - `src/main.tsx` - Application entry point with router setup
 - `src/routes/` - File-based routes directory
-- `src/components/progression/` - Core progression visualization components
+- `src/components/programmation/` - Core programmation visualization components
 - `src/components/ui/` - Reusable UI components
-- `src/types/progression.types.ts` - Type definitions for progression data model
+- `src/types/programmation.types.ts` - Type definitions for programmation data model
 - `src/lib/api.ts` - API client and authentication
 - `src/lib/utils.ts` - Utility functions (includes `cn` for class merging)
 - `src/styles.css` - Global styles with CSS variables for theming
@@ -115,9 +115,9 @@ The transformation logic converts the hierarchical API structure into timeline b
 
 - Uses Vitest with jsdom environment
 - Testing Library for React components
-- All progression components have comprehensive test coverage
+- All programmation components have comprehensive test coverage
 - Run all tests: `npm run test`
-- Run progression component tests: `npm run test -- src/components/progression`
+- Run programmation component tests: `npm run test -- src/components/programmation`
 
 ### End-to-End Testing
 
@@ -127,15 +127,15 @@ The transformation logic converts the hierarchical API structure into timeline b
 - Automatically starts dev server before running tests
 - Mock API responses using fixtures in `playwright/fixtures/responses/`
 - Key test files:
-  - `progression.spec.ts` - Main progression functionality tests
-  - `progression-timeline-navigation.spec.ts` - Timeline scrolling and navigation tests
+  - `programmation.spec.ts` - Main programmation functionality tests
+  - `programmation-timeline-navigation.spec.ts` - Timeline scrolling and navigation tests
 - Run tests: `npm run test:e2e`
 - Interactive development: `npm run test:e2e:ui`
 - Headed mode for debugging: `npm run test:e2e:headed`
 
 ## Important Implementation Notes
 
-- **Data Transformation**: The ProgressionView component performs complex data transformation from the hierarchical API structure (Matière → Domaine → Items) into timeline blocks for visualization
+- **Data Transformation**: The ProgrammationView component performs complex data transformation from the hierarchical API structure (Matière → Domaine → Items) into timeline blocks for visualization
 - **HTML Content**: Educational content from items may contain HTML and is sanitized using DOMPurify before rendering
 - **Color System**: Uses CSS custom properties with color names like `var(--color-blue-300)` for theming periods and subjects
 - **Timeline Logic**: Each item becomes a timeline block positioned by its `periodeId` and grouped by domain within subjects

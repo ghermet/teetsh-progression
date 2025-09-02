@@ -2,14 +2,14 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ProgrammationsApi } from './programmations-api';
-import type { ProgressionResponse } from '../types/progression.types';
+import type { ProgressionResponse } from '../types/programmation.types';
 
 // Mock data based on actual fixture structure
 const mockProgressionResponse: ProgressionResponse = {
   data: {
     id: 271,
-    name: "Progression d'Histoire par semaine pour CM1 et CM2 - Année 2",
-    shortDescription: 'Test progression description',
+    name: "Programmation d'Histoire par semaine pour CM1 et CM2 - Année 2",
+    shortDescription: 'Test programmation description',
     date: '2023-07-24',
     userId: 'test-user-id',
     nbOfUseLanding: 46,
@@ -66,7 +66,7 @@ const mockProgressionResponse: ProgressionResponse = {
     updatedAt: '2023-07-24T10:00:00Z',
     publishedAt: '2023-07-24T10:00:00Z',
     onePageMatiere: null,
-    slug: 'test-progression',
+    slug: 'test-programmation',
     documentId: 'test-doc-id',
   },
   meta: {},

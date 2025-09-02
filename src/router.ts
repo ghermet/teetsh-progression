@@ -17,7 +17,10 @@ export interface RouterContext {
 
 export const routerContext: RouterContext = {
   queryClient: new QueryClient(),
-  api: new Api(import.meta.env.VITE_AUTH_TOKEN),
+  api: new Api(
+    import.meta.env.VITE_API_AUTH_TOKEN,
+    import.meta.env.VITE_API_BASE_URL
+  ),
 };
 
 // Create a new router instance

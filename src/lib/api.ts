@@ -8,11 +8,11 @@ import { ProgrammationsApi } from './programmations-api';
  * for the Strapi CMS backend.
  */
 export class Api {
+  /** Authentication token for all requests */
   #authToken: string;
-  /** API client for progression-related operations */
   /** Base URL for all API endpoints */
   baseURL: string;
-  /** Authentication token for all requests */
+  /** API client for programmation-related operations */
   programmations: ProgrammationsApi;
 
   /**
@@ -24,12 +24,15 @@ export class Api {
    * @param authToken - Bearer token for authentication with the Strapi API
    * @throws {Error} When authToken is not provided or empty
    */
-  constructor(authToken: string) {
+  constructor(authToken: string, baseURL: string) {
     if (!authToken?.trim()) {
-      throw new Error('Auth token not found');
+      throw new Error('API authToken is required');
+    }
+    if (!baseURL?.trim()) {
+      throw new Error('API baseURL is required');
     }
     this.#authToken = authToken;
-    this.baseURL = 'https://strapi.teetsh.com/api';
+    this.baseURL = baseURL;
     this.programmations = new ProgrammationsApi(this.baseURL, this.#authToken);
   }
 }

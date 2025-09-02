@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProgrammationFooter > matches snapshot 1`] = `
+<div>
+  <footer
+    class="bg-slate-50 border-t border-slate-200 px-3 sm:px-4 py-2 sm:py-3"
+  >
+    <div
+      class="flex items-center justify-between gap-4"
+    >
+      <div
+        class="flex items-center gap-2 text-slate-600 text-xs sm:text-sm"
+      >
+        <span
+          class="flex items-center gap-1"
+        >
+          <span
+            class="font-medium"
+          >
+            2
+          </span>
+          <span>
+            semaine
+            s
+          </span>
+        </span>
+        <span
+          class="text-slate-400"
+        >
+          •
+        </span>
+        <span
+          class="flex items-center gap-1"
+        >
+          <span
+            class="font-medium"
+          >
+            2
+          </span>
+          <span>
+            matière
+            s
+          </span>
+        </span>
+      </div>
+      <div
+        class="touch-only text-xs text-slate-500 bg-white/80 px-2 py-1 rounded-md shadow-sm pointer-events-none"
+        role="alert"
+      >
+        ← Glissez pour défiler →
+      </div>
+    </div>
+  </footer>
+</div>
+`;

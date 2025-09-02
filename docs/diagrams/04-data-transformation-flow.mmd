@@ -1,6 +1,6 @@
 flowchart TD
-    A[Raw API Response] --> B[ProgressionResponse]
-    B --> C[ProgressionData]
+    A[Raw API Response] --> B[ProgrammationResponse]
+    B --> C[ProgrammationData]
     C --> D[Extract Periods]
     C --> E[Extract Subjects]
     
@@ -10,13 +10,13 @@ flowchart TD
     D --> H[Timeline Structure]
     G --> H
     
-    H --> I[ProgressionView Component]
-    I --> J[ProgressionTable Rendering]
+    H --> I[ProgrammationView Component]
+    I --> J[ProgrammationTable Rendering]
     
     subgraph "Component Layer"
-        I --> K[ProgressionHeader]
-        I --> L[ProgressionTable]
-        I --> M[ProgressionFooter]
+        I --> K[ProgrammationHeader]
+        I --> L[ProgrammationTable]
+        I --> M[ProgrammationFooter]
     end
     
     subgraph "Data Processing"

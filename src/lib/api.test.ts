@@ -6,25 +6,26 @@ import { ProgrammationsApi } from './programmations-api';
 
 describe('Api', () => {
   const validToken = 'valid-auth-token';
+  const baseURL = 'https://strapi.teetsh.com/api';
 
   describe('constructor', () => {
     it('should create a new instance with valid token', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       expect(api).toBeInstanceOf(Api);
     });
 
     it('should set the correct baseURL', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       expect(api.baseURL).toBe('https://strapi.teetsh.com/api');
     });
 
     it('should create an instance of ProgrammationsApi', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       expect(api.programmations).toBeInstanceOf(ProgrammationsApi);
     });
 
     it('should pass the auth token to ProgrammationsApi', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       // The ProgrammationsApi should have the correct baseURL which indicates it received the token
       expect(api.programmations.baseURL).toBe(
         'https://strapi.teetsh.com/api/programmations'
@@ -34,28 +35,58 @@ describe('Api', () => {
 
   describe('error handling', () => {
     it('should throw an error if the auth token is empty string', () => {
-      expect(() => new Api('')).toThrow('Auth token not found');
+      expect(() => new Api('', baseURL)).toThrow('API authToken is required');
     });
 
     it('should throw an error if the auth token is null', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(() => new Api(null as any)).toThrow('Auth token not found');
+      expect(() => new Api(null as any, baseURL)).toThrow(
+        'API authToken is required'
+      );
     });
 
     it('should throw an error if the auth token is undefined', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(() => new Api(undefined as any)).toThrow('Auth token not found');
+      expect(() => new Api(undefined as any, baseURL)).toThrow(
+        'API authToken is required'
+      );
     });
 
     it('should throw an error if the auth token is whitespace only', () => {
       // The implementation now checks !authToken?.trim(), so whitespace-only tokens are rejected
-      expect(() => new Api('   ')).toThrow('Auth token not found');
+      expect(() => new Api('   ', baseURL)).toThrow(
+        'API authToken is required'
+      );
+    });
+
+    it('should throw an error if the baseURL is empty string', () => {
+      expect(() => new Api(validToken, '')).toThrow('API baseURL is required');
+    });
+
+    it('should throw an error if the baseURL is null', () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect(() => new Api(validToken, null as any)).toThrow(
+        'API baseURL is required'
+      );
+    });
+
+    it('should throw an error if the baseURL is undefined', () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect(() => new Api(validToken, undefined as any)).toThrow(
+        'API baseURL is required'
+      );
+    });
+
+    it('should throw an error if the baseURL is whitespace only', () => {
+      expect(() => new Api(validToken, '   ')).toThrow(
+        'API baseURL is required'
+      );
     });
   });
 
   describe('private properties', () => {
     it('should not expose auth token publicly', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       // Auth token should not be directly accessible as a public property
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((api as any).authToken).toBeUndefined();
@@ -65,7 +96,7 @@ describe('Api', () => {
 
   describe('integration', () => {
     it('should allow ProgrammationsApi to make requests with the provided token', () => {
-      const api = new Api(validToken);
+      const api = new Api(validToken, baseURL);
       // This tests that the token is properly passed through the constructor chain
       expect(api.programmations).toBeDefined();
       expect(typeof api.programmations.findOne).toBe('function');

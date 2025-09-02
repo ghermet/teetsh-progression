@@ -1,16 +1,16 @@
-import type { ProgressionResponse } from '../types/progression.types';
+import type { ProgressionResponse } from '../types/programmation.types';
 
 /**
  * API client for managing educational progressions (programmations).
  *
  * Provides methods to interact with the Strapi CMS backend for fetching
- * progression data including subjects, domains, periods, and learning items.
+ * programmation data including subjects, domains, periods, and learning items.
  */
 export class ProgrammationsApi {
-  /** Base URL for programmations API endpoints */
-  baseURL: string;
   /** Authentication token for API requests */
   #authToken: string;
+  /** Base URL for programmations API endpoints */
+  baseURL: string;
 
   /**
    * Creates a new ProgrammationsApi instance.
@@ -24,13 +24,13 @@ export class ProgrammationsApi {
   }
 
   /**
-   * Fetches a single progression by its ID.
+   * Fetches a single programmation by its ID.
    *
-   * Retrieves complete progression data including metadata, periods, subjects,
+   * Retrieves complete programmation data including metadata, periods, subjects,
    * domains, and learning items from the Strapi CMS.
    *
-   * @param id - The unique identifier of the progression
-   * @returns Promise resolving to the progression response with data and metadata
+   * @param id - The unique identifier of the programmation
+   * @returns Promise resolving to the programmation response with data and metadata
    * @throws Will throw an error if the request fails or returns invalid JSON
    */
   async findOne(id: string, init?: RequestInit): Promise<ProgressionResponse> {

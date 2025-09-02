@@ -11,19 +11,19 @@ classDiagram
         +string baseURL
         -string #authToken
         +constructor(baseURL: string, authToken: string)
-        +findOne(id: string, init?: RequestInit): Promise~ProgressionResponse~
-        +findMany(filters?: ProgressionFilters): Promise~ProgressionListResponse~
-        +create(data: CreateProgressionRequest): Promise~ProgressionResponse~
-        +update(id: string, data: UpdateProgressionRequest): Promise~ProgressionResponse~
+        +findOne(id: string, init?: RequestInit): Promise~ProgrammationResponse~
+        +findMany(filters?: ProgrammationFilters): Promise~ProgrammationListResponse~
+        +create(data: CreateProgrammationRequest): Promise~ProgrammationResponse~
+        +update(id: string, data: UpdateProgrammationRequest): Promise~ProgrammationResponse~
         +delete(id: string): Promise~void~
     }
 
-    class ProgressionResponse {
-        +ProgressionData data
+    class ProgrammationResponse {
+        +ProgrammationData data
         +Record~string, unknown~ meta
     }
 
-    class ProgressionData {
+    class ProgrammationData {
         +number id
         +string name
         +string shortDescription
@@ -86,9 +86,9 @@ classDiagram
 
     %% Relationships
     Api --> ProgrammationsApi : "contains"
-    ProgrammationsApi --> ProgressionResponse : "returns"
-    ProgressionResponse --> ProgressionData : "contains"
-    ProgressionData --> Periode : "has many"
-    ProgressionData --> Matiere : "has many"
-    Matiere --> Domaine : "contains"
-    Domaine --> Item : "contains"
+    ProgrammationsApi --> ProgrammationResponse : "returns"
+    ProgrammationResponse --> ProgrammationData : "contains"
+    ProgrammationData --> Periode : "has many"
+    ProgrammationData --> Matiere : "has many"
+    Matiere --> Domaine : "has many"
+    Domaine --> Item : "has many"

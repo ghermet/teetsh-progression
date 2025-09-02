@@ -2,23 +2,20 @@ import { type Page } from '@playwright/test';
 import { step } from '../decorators/step-decorator';
 import type { Handler } from './types';
 
-const baseUrl = '**/programmations';
+if (!process.env.VITE_API_BASE_URL) {
+  throw new Error('VITE_API_BASE_URL is not defined');
+}
 
-/**
- * Mock API responses for Strapi endpoints
- */
+const baseURL = `${process.env.VITE_API_BASE_URL}/programmations`;
+
 export class ProgrammationsApiMocks {
-  readonly baseUrl = baseUrl;
   readonly page: Page;
   constructor(page: Page) {
     this.page = page;
   }
 
-  /**
-   * Mock the progression API endpoint with the provided fixture data
-   */
-  @step(`Mock ${baseUrl}/:id`)
+  @step(`Mock ${baseURL}/:id`)
   async findOne(handler: Handler) {
-    await this.page.route(`${baseUrl}/*`, handler);
+    await this.page.route(`${baseURL}/*`, handler);
   }
 }

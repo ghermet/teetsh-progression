@@ -10,43 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProgressionsIdRouteImport } from './routes/progressions.$id'
+import { Route as ProgrammationsIdRouteImport } from './routes/programmations.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProgressionsIdRoute = ProgressionsIdRouteImport.update({
-  id: '/progressions/$id',
-  path: '/progressions/$id',
+const ProgrammationsIdRoute = ProgrammationsIdRouteImport.update({
+  id: '/programmations/$id',
+  path: '/programmations/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/progressions/$id': typeof ProgressionsIdRoute
+  '/programmations/$id': typeof ProgrammationsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/progressions/$id': typeof ProgressionsIdRoute
+  '/programmations/$id': typeof ProgrammationsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/progressions/$id': typeof ProgressionsIdRoute
+  '/programmations/$id': typeof ProgrammationsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/progressions/$id'
+  fullPaths: '/' | '/programmations/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/progressions/$id'
-  id: '__root__' | '/' | '/progressions/$id'
+  to: '/' | '/programmations/$id'
+  id: '__root__' | '/' | '/programmations/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProgressionsIdRoute: typeof ProgressionsIdRoute
+  ProgrammationsIdRoute: typeof ProgrammationsIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/progressions/$id': {
-      id: '/progressions/$id'
-      path: '/progressions/$id'
-      fullPath: '/progressions/$id'
-      preLoaderRoute: typeof ProgressionsIdRouteImport
+    '/programmations/$id': {
+      id: '/programmations/$id'
+      path: '/programmations/$id'
+      fullPath: '/programmations/$id'
+      preLoaderRoute: typeof ProgrammationsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProgressionsIdRoute: ProgressionsIdRoute,
+  ProgrammationsIdRoute: ProgrammationsIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

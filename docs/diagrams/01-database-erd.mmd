@@ -1,20 +1,29 @@
 erDiagram
-    PROGRESSIONS {
+    PROGRAMMATION {
         uuid id PK "Primary Key"
-        string name "Progression name"
+        string name "Programmation name"
         text short_description "Brief description"
-        string level "Educational level (CM1, CM2, etc.)"
+        string niveau "Educational level (CM1, CM2, etc.)"
         uuid school_year_id FK "Reference to school year"
         uuid school_id FK "Reference to school"
         uuid user_id FK "Reference to user"
+        string status "draft, published, archived"
+        integer nb_of_use_landing "Number of uses from landing page"
+        integer nb_of_use_in_app "Number of uses from within the app"
+        integer column_width "Column width for display"
+        string font_size "Font size for display"
+        string view "View mode for display"
+        boolean inverted_row_col "Invert rows and columns for display"
         timestamptz created_at "Creation timestamp"
         timestamptz updated_at "Last update timestamp"
-        string status "draft, published, archived"
+        timestamptz published_at "Publication timestamp"
+        string slug "URL-friendly slug"
+        string document_id "Reference to an external document"
     }
 
     PERIODS {
         uuid id PK "Primary Key"
-        uuid progression_id FK "Reference to progression"
+        uuid programmation_id FK "Reference to programmation"
         string name "Period name (Semaine 1, Octobre)"
         date start_date "Period start date"
         date end_date "Period end date"
@@ -24,7 +33,7 @@ erDiagram
 
     SUBJECTS {
         uuid id PK "Primary Key"
-        uuid progression_id FK "Reference to progression"
+        uuid programmation_id FK "Reference to programmation"
         string name "Subject name (Histoire et géographie)"
         string color "CSS color identifier"
         integer position "Display order"
@@ -32,23 +41,20 @@ erDiagram
 
     DOMAINS {
         uuid id PK "Primary Key"
-        uuid subject_id FK "Reference to subject"
+        uuid matiere_id FK "Reference to subject"
         string name "Domain name (Histoire, Géographie)"
         string color "CSS color identifier"
-        integer position "Display order"
     }
 
     LEARNING_ITEMS {
         uuid id PK "Primary Key"
-        uuid domain_id FK "Reference to domain"
-        uuid period_id FK "Reference to period"
-        text content "HTML educational content"
-        jsonb objectives "Structured learning objectives"
-        jsonb resources "Links to educational resources"
-        integer difficulty_level "1-5 difficulty scale"
-        integer estimated_duration "Duration in minutes"
-        timestamptz created_at "Creation timestamp"
-        timestamptz updated_at "Last update timestamp"
+        uuid domaine_id FK "Reference to domain"
+        uuid periode_id FK "Reference to period"
+        text value "HTML educational content"
+        integer y "y-coordinate for display"
+        text sequence "Associated sequence information (currently unused)"
+        text fiche_de_prep "Associated preparation sheet (currently unused)"
+        jsonb attachments "File attachments related to this item"
     }
 
     SCHOOL_YEARS {
@@ -75,11 +81,11 @@ erDiagram
     }
 
     %% Relationships
-    PROGRESSIONS ||--o{ PERIODS : "has many"
-    PROGRESSIONS ||--o{ SUBJECTS : "contains"
-    PROGRESSIONS }o--|| SCHOOL_YEARS : "belongs to"
-    PROGRESSIONS }o--|| SCHOOLS : "belongs to"
-    PROGRESSIONS }o--|| USERS : "created by"
+    PROGRAMMATION ||--o{ PERIODS : "has many"
+    PROGRAMMATION ||--o{ SUBJECTS : "contains"
+    PROGRAMMATION }o--|| SCHOOL_YEARS : "belongs to"
+    PROGRAMMATION }o--|| SCHOOLS : "belongs to"
+    PROGRAMMATION }o--|| USERS : "created by"
     
     SUBJECTS ||--o{ DOMAINS : "divided into"
     DOMAINS ||--o{ LEARNING_ITEMS : "contains"
