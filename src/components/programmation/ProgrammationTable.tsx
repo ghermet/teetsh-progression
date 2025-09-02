@@ -205,10 +205,10 @@ function ProgressionTableBody({
                     <li
                       key={item.id}
                       className={cn(
-                        'px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight break-words w-full select-none touch-manipulation'
+                        'px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight bg-white break-words w-full select-none touch-manipulation'
                       )}
                       style={{
-                        background: `var(--color-${dom.color})`,
+                        border: `2px solid var(--color-${dom.color})`,
                       }}
                       dangerouslySetInnerHTML={{
                         __html: DOMPurify.sanitize(item.value),

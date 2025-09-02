@@ -190,8 +190,8 @@ exports[`ProgrammationView > matches snapshot 1`] = `
                   class="flex flex-col gap-1"
                 >
                   <li
-                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight break-words w-full select-none touch-manipulation"
-                    style="background: var(--color-blue);"
+                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight bg-white break-words w-full select-none touch-manipulation"
+                    style="border: 2px solid var(--color-blue);"
                   >
                     Addition
                   </li>
@@ -204,8 +204,8 @@ exports[`ProgrammationView > matches snapshot 1`] = `
                   class="flex flex-col gap-1"
                 >
                   <li
-                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight break-words w-full select-none touch-manipulation"
-                    style="background: var(--color-blue);"
+                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight bg-white break-words w-full select-none touch-manipulation"
+                    style="border: 2px solid var(--color-blue);"
                   >
                     Subtraction
                   </li>
@@ -263,8 +263,8 @@ exports[`ProgrammationView > matches snapshot 1`] = `
                   class="flex flex-col gap-1"
                 >
                   <li
-                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight break-words w-full select-none touch-manipulation"
-                    style="background: var(--color-green);"
+                    class="px-1.5 sm:px-2 py-1 rounded-md shadow-md transition-all min-h-6 text-slate-800 text-xs font-medium leading-tight bg-white break-words w-full select-none touch-manipulation"
+                    style="border: 2px solid var(--color-green);"
                   >
                     Letters
                   </li>
