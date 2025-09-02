@@ -71,7 +71,7 @@
 
 ### Scalabilité
 
-- **Une seule programmation à la fois** : Pas de comparaison ou vue multi-progressions
+- **Une seule programmation à la fois** : Pas de comparaison ou vue multi-programmations
 - **Pas de pagination** : Toutes les données chargées d'un coup
 - **Cache basique** : TanStack Query par défaut, pas de stratégie sophistiquée
 
@@ -89,7 +89,7 @@
 - **Navigation par raccourcis** : J/K pour naviguer entre périodes, / pour recherche
 - **Minimap de navigation** : Vue d'ensemble clickable de toute la timeline
 - **Zoom et focus** : Zoom sur une période spécifique avec détails étendus
-- **Mode comparaison** : Affichage côte-à-côte de plusieurs progressions
+- **Mode comparaison** : Affichage côte-à-côte de plusieurs programmations
 - **Filtres avancés** : Par matière, domaine, niveau de difficulté, tags
 
 ### Collaboration et personnalisation
@@ -125,8 +125,8 @@
 ### Modélisation base de données
 
 ```sql
--- Table principale des progressions
-CREATE TABLE progressions (
+-- Table principale des programmations
+CREATE TABLE programmations (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(255) NOT NULL,
     short_description TEXT,
@@ -142,23 +142,23 @@ CREATE TABLE progressions (
 -- Périodes de temps (semaines, mois)
 CREATE TABLE periods (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    progression_id UUID REFERENCES progressions(id) ON DELETE CASCADE,
+    programmation_id UUID REFERENCES programmations(id) ON DELETE CASCADE,
     name VARCHAR(100) NOT NULL, -- "Semaine 1", "Octobre"
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
     color VARCHAR(50) DEFAULT 'blue-200', -- Couleur CSS
     position INTEGER NOT NULL, -- Ordre d'affichage
-    UNIQUE(progression_id, position)
+    UNIQUE(programmation_id, position)
 );
 
 -- Matières/disciplines
 CREATE TABLE subjects (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    progression_id UUID REFERENCES progressions(id) ON DELETE CASCADE,
+    programmation_id UUID REFERENCES programmations(id) ON DELETE CASCADE,
     name VARCHAR(255) NOT NULL, -- "Histoire et géographie"
     color VARCHAR(50) DEFAULT 'slate-300',
     position INTEGER NOT NULL,
-    UNIQUE(progression_id, position)
+    UNIQUE(programmation_id, position)
 );
 
 -- Domaines dans une matière
@@ -187,15 +187,15 @@ CREATE TABLE learning_items (
 
 -- Index pour performance
 CREATE INDEX idx_learning_items_domain_period ON learning_items(domain_id, period_id);
-CREATE INDEX idx_periods_progression_position ON periods(progression_id, position);
-CREATE INDEX idx_subjects_progression_position ON subjects(progression_id, position);
+CREATE INDEX idx_periods_programmation_position ON periods(programmation_id, position);
+CREATE INDEX idx_subjects_programmation_position ON subjects(programmation_id, position);
 ```
 
 ### Routes API REST
 
 ```typescript
-// GET /api/progressions/:id - Récupérer une programmation complète
-interface GetProgressionResponse {
+// GET /api/programmations/:id - Récupérer une programmation complète
+interface GetProgrammationResponse {
   data: {
     id: string;
     name: string;
@@ -207,10 +207,10 @@ interface GetProgressionResponse {
   };
 }
 
-// GET /api/progressions/:id/timeline - Version optimisée pour timeline
+// GET /api/programmations/:id/timeline - Version optimisée pour timeline
 interface GetTimelineResponse {
   data: {
-    programmation: ProgressionMetadata;
+    programmation: ProgrammationMetadata;
     timeline: {
       periods: Period[];
       blocks: TimelineBlock[]; // Pré-calculés côté serveur
@@ -218,8 +218,8 @@ interface GetTimelineResponse {
   };
 }
 
-// POST /api/progressions - Créer une programmation
-interface CreateProgressionRequest {
+// POST /api/programmations - Créer une programmation
+interface CreateProgrammationRequest {
   name: string;
   shortDescription?: string;
   level: string;
@@ -227,14 +227,14 @@ interface CreateProgressionRequest {
   templateId?: string; // Cloner depuis un template
 }
 
-// PUT /api/progressions/:id - Mettre à jour
-interface UpdateProgressionRequest {
+// PUT /api/programmations/:id - Mettre à jour
+interface UpdateProgrammationRequest {
   name?: string;
   shortDescription?: string;
   status?: 'draft' | 'published' | 'archived';
 }
 
-// POST /api/progressions/:id/periods - Ajouter une période
+// POST /api/programmations/:id/periods - Ajouter une période
 interface CreatePeriodRequest {
   name: string;
   startDate: string;
@@ -253,10 +253,10 @@ interface CreateLearningItemRequest {
   difficultyLevel?: number;
 }
 
-// GET /api/progressions/:id/export?format=pdf|xlsx
+// GET /api/programmations/:id/export?format=pdf|xlsx
 // Génération de documents exportables
 
-// GET /api/progressions/search?q=histoire&level=CM1
+// GET /api/programmations/search?q=histoire&level=CM1
 // Recherche avec filtres
 ```
 
@@ -265,7 +265,7 @@ interface CreateLearningItemRequest {
 ```graphql
 type Query {
   programmation(id: ID!): Programmation
-  progressions(
+  programmations(
     level: String
     subject: String
     schoolId: ID
@@ -275,10 +275,10 @@ type Query {
 }
 
 type Mutation {
-  createProgression(input: CreateProgressionInput!): Programmation!
-  updateProgression(id: ID!, input: UpdateProgressionInput!): Programmation!
+  createProgrammation(input: CreateProgrammationInput!): Programmation!
+  updateProgrammation(id: ID!, input: UpdateProgrammationInput!): Programmation!
   addLearningItem(input: AddLearningItemInput!): LearningItem!
-  duplicateProgression(id: ID!, name: String!): Programmation!
+  duplicateProgrammation(id: ID!, name: String!): Programmation!
 }
 
 type Programmation {
@@ -288,10 +288,10 @@ type Programmation {
   level: String!
   periods: [Period!]!
   subjects: [Subject!]!
-  stats: ProgressionStats!
+  stats: ProgrammationStats!
 }
 
-type ProgressionStats {
+type ProgrammationStats {
   totalItems: Int!
   completedPeriods: Int!
   averageDifficulty: Float!
@@ -302,7 +302,7 @@ type ProgressionStats {
 ### Optimisations de performance
 
 1. **Vue matérialisée** pour timeline pré-calculée
-2. **Cache Redis** pour progressions fréquemment accédées
-3. **Pagination** pour grandes progressions (100+ périodes)
+2. **Cache Redis** pour programmations fréquemment accédées
+3. **Pagination** pour grandes programmations (100+ périodes)
 4. **Compression** des responses JSON avec gzip
 5. **CDN** pour assets statiques (couleurs, icônes)

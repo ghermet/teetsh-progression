@@ -46,7 +46,7 @@ The application follows this data flow:
 
 The application works with educational programmation data structured as:
 
-- **ProgressionData**: Top-level container with metadata and content
+- **ProgrammationData**: Top-level container with metadata and content
 - **Matière**: Subject areas (e.g., "Histoire et géographie")
 - **Domaine**: Sub-domains within subjects (e.g., "Histoire")
 - **Item**: Individual content pieces with HTML values, linked to specific periods

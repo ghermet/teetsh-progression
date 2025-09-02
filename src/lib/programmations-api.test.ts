@@ -2,10 +2,10 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { ProgrammationsApi } from './programmations-api';
-import type { ProgressionResponse } from '../types/programmation.types';
+import type { ProgrammationResponse } from '../types/programmation.types';
 
 // Mock data based on actual fixture structure
-const mockProgressionResponse: ProgressionResponse = {
+const mockProgrammationResponse: ProgrammationResponse = {
   data: {
     id: 271,
     name: "Programmation d'Histoire par semaine pour CM1 et CM2 - Année 2",
@@ -105,7 +105,7 @@ describe('ProgrammationsApi', () => {
   describe('findOne', () => {
     it('should call fetch with correct URL and headers', async () => {
       fetchSpy.mockResolvedValue({
-        json: () => Promise.resolve(mockProgressionResponse),
+        json: () => Promise.resolve(mockProgrammationResponse),
         ok: true,
         status: 200,
       } as Response);
@@ -122,12 +122,12 @@ describe('ProgrammationsApi', () => {
         }
       );
 
-      expect(result).toEqual(mockProgressionResponse);
+      expect(result).toEqual(mockProgrammationResponse);
     });
 
     it('should pass through custom RequestInit options', async () => {
       fetchSpy.mockResolvedValue({
-        json: () => Promise.resolve(mockProgressionResponse),
+        json: () => Promise.resolve(mockProgrammationResponse),
         ok: true,
         status: 200,
       } as Response);
@@ -154,7 +154,7 @@ describe('ProgrammationsApi', () => {
 
     it('should return parsed JSON response', async () => {
       fetchSpy.mockResolvedValue({
-        json: () => Promise.resolve(mockProgressionResponse),
+        json: () => Promise.resolve(mockProgrammationResponse),
         ok: true,
         status: 200,
       } as Response);
@@ -162,7 +162,7 @@ describe('ProgrammationsApi', () => {
       const api = new ProgrammationsApi(baseURL, authToken);
       const result = await api.findOne('test-id');
 
-      expect(result).toEqual(mockProgressionResponse);
+      expect(result).toEqual(mockProgrammationResponse);
       expect(result.data).toHaveProperty('id', 271);
       expect(result.data.periodes).toHaveLength(1);
       expect(result.data.matieres).toHaveLength(1);

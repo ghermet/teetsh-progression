@@ -1,9 +1,9 @@
-import type { ProgressionData } from '../../types/programmation.types';
+import type { ProgrammationData } from '../../types/programmation.types';
 
 /**
  * Props for the ProgrammationHeader component
  */
-type ProgressionHeaderProps = Pick<ProgressionData, 'name' | 'niveau'> & {
+type ProgrammationHeaderProps = Pick<ProgrammationData, 'name' | 'niveau'> & {
   /** Optional short description of the programmation */
   shortDescription?: string;
   /** Optional date when the programmation was created */
@@ -28,7 +28,7 @@ export function ProgrammationHeader({
   shortDescription,
   niveau,
   date,
-}: ProgressionHeaderProps) {
+}: ProgrammationHeaderProps) {
   return (
     <header className="bg-slate-100 px-4 sm:px-6 py-6 sm:py-8 border-b border-slate-200">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0">

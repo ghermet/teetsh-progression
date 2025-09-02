@@ -8,8 +8,8 @@ sequenceDiagram
     Note over C,DB: Get Programmation Flow
     
     C->>A: new Api(authToken)
-    A->>A: Validate token
-    A->>P: new ProgrammationsApi(baseURL, token)
+    A->>A: Validate authToken
+    A->>P: new ProgrammationsApi(baseURL, authToken)
     
     C->>P: findOne(programmationId)
     P->>S: GET /api/programmations/{id}

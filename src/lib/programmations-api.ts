@@ -1,4 +1,4 @@
-import type { ProgressionResponse } from '../types/programmation.types';
+import type { ProgrammationResponse } from '../types/programmation.types';
 
 /**
  * API client for managing educational progressions (programmations).
@@ -33,7 +33,10 @@ export class ProgrammationsApi {
    * @returns Promise resolving to the programmation response with data and metadata
    * @throws Will throw an error if the request fails or returns invalid JSON
    */
-  async findOne(id: string, init?: RequestInit): Promise<ProgressionResponse> {
+  async findOne(
+    id: string,
+    init?: RequestInit
+  ): Promise<ProgrammationResponse> {
     const res = await fetch(`${this.baseURL}/${id}`, {
       headers: {
         Authorization: `Bearer ${this.#authToken}`,

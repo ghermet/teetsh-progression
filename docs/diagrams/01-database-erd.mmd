@@ -1,5 +1,5 @@
 erDiagram
-    PROGRAMMATION {
+    PROGRAMMATIONS {
         uuid id PK "Primary Key"
         string name "Programmation name"
         text short_description "Brief description"
@@ -81,11 +81,11 @@ erDiagram
     }
 
     %% Relationships
-    PROGRAMMATION ||--o{ PERIODS : "has many"
-    PROGRAMMATION ||--o{ SUBJECTS : "contains"
-    PROGRAMMATION }o--|| SCHOOL_YEARS : "belongs to"
-    PROGRAMMATION }o--|| SCHOOLS : "belongs to"
-    PROGRAMMATION }o--|| USERS : "created by"
+    PROGRAMMATIONS ||--o{ PERIODS : "has many"
+    PROGRAMMATIONS ||--o{ SUBJECTS : "contains"
+    PROGRAMMATIONS }o--|| SCHOOL_YEARS : "belongs to"
+    PROGRAMMATIONS }o--|| SCHOOLS : "belongs to"
+    PROGRAMMATIONS }o--|| USERS : "created by"
     
     SUBJECTS ||--o{ DOMAINS : "divided into"
     DOMAINS ||--o{ LEARNING_ITEMS : "contains"

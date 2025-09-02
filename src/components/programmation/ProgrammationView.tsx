@@ -1,4 +1,4 @@
-import type { ProgressionData } from '../../types/programmation.types';
+import type { ProgrammationData } from '../../types/programmation.types';
 import { ProgrammationFooter } from './ProgrammationFooter';
 import { ProgrammationHeader } from './ProgrammationHeader';
 import { ProgrammationTable } from './ProgrammationTable';
@@ -25,7 +25,7 @@ export function ProgrammationView({
   niveau,
   periodes,
   matieres,
-}: ProgressionData) {
+}: ProgrammationData) {
   return (
     <section className="bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-sm sm:shadow-md border border-slate-200">
       <ProgrammationHeader

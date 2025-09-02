@@ -93,7 +93,7 @@ export interface Matiere {
  * This is the main data structure that represents an entire educational programmation,
  * including subjects, domains, periods, items, and various configuration options.
  */
-export interface ProgressionData {
+export interface ProgrammationData {
   /** Unique numeric identifier */
   id: number;
   /** Display name of the programmation */
@@ -148,9 +148,9 @@ export interface ProgressionData {
  * Standard Strapi response format containing the programmation data
  * and additional metadata about the request/response.
  */
-export interface ProgressionResponse {
+export interface ProgrammationResponse {
   /** The actual programmation data */
-  data: ProgressionData;
+  data: ProgrammationData;
   /** Additional metadata from the CMS */
   meta: Record<string, unknown>;
 }

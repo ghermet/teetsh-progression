@@ -4,7 +4,7 @@
 
 ```mermaid
 erDiagram
-    PROGRESSIONS {
+    PROGRAMMATIONS {
         uuid id PK "Primary Key"
         string name "Programmation name"
         text short_description "Brief description"
@@ -19,7 +19,7 @@ erDiagram
 
     PERIODS {
         uuid id PK "Primary Key"
-        uuid progression_id FK "Reference to programmation"
+        uuid programmation_id FK "Reference to programmation"
         string name "Period name (Semaine 1, Octobre)"
         date start_date "Period start date"
         date end_date "Period end date"
@@ -29,7 +29,7 @@ erDiagram
 
     SUBJECTS {
         uuid id PK "Primary Key"
-        uuid progression_id FK "Reference to programmation"
+        uuid programmation_id FK "Reference to programmation"
         string name "Subject name (Histoire et géographie)"
         string color "CSS color identifier"
         integer position "Display order"
@@ -80,11 +80,11 @@ erDiagram
     }
 
     %% Relationships
-    PROGRESSIONS ||--o{ PERIODS : "has many"
-    PROGRESSIONS ||--o{ SUBJECTS : "contains"
-    PROGRESSIONS }o--|| SCHOOL_YEARS : "belongs to"
-    PROGRESSIONS }o--|| SCHOOLS : "belongs to"
-    PROGRESSIONS }o--|| USERS : "created by"
+    PROGRAMMATIONS ||--o{ PERIODS : "has many"
+    PROGRAMMATIONS ||--o{ SUBJECTS : "contains"
+    PROGRAMMATIONS }o--|| SCHOOL_YEARS : "belongs to"
+    PROGRAMMATIONS }o--|| SCHOOLS : "belongs to"
+    PROGRAMMATIONS }o--|| USERS : "created by"
 
     SUBJECTS ||--o{ DOMAINS : "divided into"
     DOMAINS ||--o{ LEARNING_ITEMS : "contains"
@@ -107,19 +107,19 @@ classDiagram
         +string baseURL
         -string #authToken
         +constructor(baseURL: string, authToken: string)
-        +findOne(id: string, init?: RequestInit): Promise~ProgressionResponse~
-        +findMany(filters?: ProgressionFilters): Promise~ProgressionListResponse~
-        +create(data: CreateProgressionRequest): Promise~ProgressionResponse~
-        +update(id: string, data: UpdateProgressionRequest): Promise~ProgressionResponse~
+        +findOne(id: string, init?: RequestInit): Promise~ProgrammationResponse~
+        +findMany(filters?: ProgrammationFilters): Promise~ProgrammationListResponse~
+        +create(data: CreateProgrammationRequest): Promise~ProgrammationResponse~
+        +update(id: string, data: UpdateProgrammationRequest): Promise~ProgrammationResponse~
         +delete(id: string): Promise~void~
     }
 
-    class ProgressionResponse {
-        +ProgressionData data
+    class ProgrammationResponse {
+        +ProgrammationData data
         +Record~string, unknown~ meta
     }
 
-    class ProgressionData {
+    class ProgrammationData {
         +number id
         +string name
         +string shortDescription
@@ -182,10 +182,10 @@ classDiagram
 
     %% Relationships
     Api --> ProgrammationsApi : "contains"
-    ProgrammationsApi --> ProgressionResponse : "returns"
-    ProgressionResponse --> ProgressionData : "contains"
-    ProgressionData --> Periode : "has many"
-    ProgressionData --> Matiere : "has many"
+    ProgrammationsApi --> ProgrammationResponse : "returns"
+    ProgrammationResponse --> ProgrammationData : "contains"
+    ProgrammationData --> Periode : "has many"
+    ProgrammationData --> Matiere : "has many"
     Matiere --> Domaine : "contains"
     Domaine --> Item : "contains"
 ```
@@ -210,26 +210,26 @@ sequenceDiagram
     P->>S: GET /api/programmations/{id}
     S->>DB: SELECT programmation with relations
     DB-->>S: Programmation data + periods + subjects + domains + items
-    S-->>P: ProgressionResponse JSON
+    S-->>P: ProgrammationResponse JSON
     P->>P: Parse and validate response
-    P-->>C: ProgressionResponse object
+    P-->>C: ProgrammationResponse object
 
     Note over C,DB: Create Programmation Flow
 
     C->>P: create(progressionData)
-    P->>S: POST /api/progressions
+    P->>S: POST /api/programmations
     S->>DB: INSERT programmation
     DB-->>S: Created programmation
-    S-->>P: ProgressionResponse JSON
+    S-->>P: ProgrammationResponse JSON
     P-->>C: Created programmation object
 
     Note over C,DB: Update Programmation Flow
 
     C->>P: update(id, updateData)
-    P->>S: PUT /api/progressions/{id}
+    P->>S: PUT /api/programmations/{id}
     S->>DB: UPDATE programmation
     DB-->>S: Updated programmation
-    S-->>P: ProgressionResponse JSON
+    S-->>P: ProgrammationResponse JSON
     P-->>C: Updated programmation object
 ```
 
@@ -237,8 +237,8 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    A[Raw API Response] --> B[ProgressionResponse]
-    B --> C[ProgressionData]
+    A[Raw API Response] --> B[ProgrammationResponse]
+    B --> C[ProgrammationData]
     C --> D[Extract Periods]
     C --> E[Extract Subjects]
 
@@ -278,7 +278,7 @@ graph TB
         D[Search Indexes]
     end
 
-    A --> A1["progressions(id)"]
+    A --> A1["programmations(id)"]
     A --> A2["periods(id)"]
     A --> A3["subjects(id)"]
     A --> A4["domains(id)"]
@@ -294,9 +294,9 @@ graph TB
     C --> C2["periods(progression_id, position)"]
     C --> C3["subjects(progression_id, position)"]
 
-    D --> D1["progressions(name) GIN"]
+    D --> D1["programmations(name) GIN"]
     D --> D2["learning_items(content) GIN"]
-    D --> D3["progressions(level, status)"]
+    D --> D3["programmations(level, status)"]
 ```
 
 ## API Response Caching Strategy
@@ -344,4 +344,4 @@ graph LR
 - **API Response Time**: < 200ms for cached data
 - **Database Query Time**: < 50ms for programmation queries
 - **Concurrent Users**: 1000+ simultaneous users
-- **Data Throughput**: 10K+ progressions, 100K+ learning items
+- **Data Throughput**: 10K+ programmations, 100K+ learning items

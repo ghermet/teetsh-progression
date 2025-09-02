@@ -3,10 +3,10 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { ProgrammationView } from './ProgrammationView';
-import type { ProgressionData } from '../../types/programmation.types';
+import type { ProgrammationData } from '../../types/programmation.types';
 
 describe('ProgrammationView', () => {
-  const mockProgressionData: ProgressionData = {
+  const mockProgrammationData: ProgrammationData = {
     id: 1,
     name: 'Test Programmation',
     shortDescription: 'Test Description',
@@ -117,7 +117,7 @@ describe('ProgrammationView', () => {
   };
 
   it('renders all programmation components', () => {
-    render(<ProgrammationView {...mockProgressionData} />);
+    render(<ProgrammationView {...mockProgrammationData} />);
 
     expect(
       screen.getByRole('heading', { name: /Test Programmation/i })
@@ -127,7 +127,7 @@ describe('ProgrammationView', () => {
   });
 
   it('passes correct props to ProgrammationHeader', () => {
-    render(<ProgrammationView {...mockProgressionData} />);
+    render(<ProgrammationView {...mockProgrammationData} />);
 
     expect(
       screen.getByRole('heading', { name: /Test Programmation/i })
@@ -138,7 +138,7 @@ describe('ProgrammationView', () => {
   });
 
   it('transforms matieres into topics correctly', () => {
-    render(<ProgrammationView {...mockProgressionData} />);
+    render(<ProgrammationView {...mockProgrammationData} />);
 
     // Should have 2 topics (2 domaines)
     const rows = screen.getAllByRole('row');
@@ -148,13 +148,13 @@ describe('ProgrammationView', () => {
 
   it('sorts matieres by position', () => {
     const dataWithUnsortedMatieres = {
-      ...mockProgressionData,
+      ...mockProgrammationData,
       matieres: [
         {
-          ...mockProgressionData.matieres[1], // French with position 2
+          ...mockProgrammationData.matieres[1], // French with position 2
           position: 2,
         },
-        { ...mockProgressionData.matieres[0], position: 1 }, // Math with position 1
+        { ...mockProgrammationData.matieres[0], position: 1 }, // Math with position 1
       ],
     };
 
@@ -168,7 +168,7 @@ describe('ProgrammationView', () => {
 
   it('handles empty matieres', () => {
     const dataWithEmptyMatieres = {
-      ...mockProgressionData,
+      ...mockProgrammationData,
       matieres: [],
     };
 
@@ -181,13 +181,13 @@ describe('ProgrammationView', () => {
 
   it('handles matieres with no items', () => {
     const dataWithEmptyItems = {
-      ...mockProgressionData,
+      ...mockProgrammationData,
       matieres: [
         {
-          ...mockProgressionData.matieres[0],
+          ...mockProgrammationData.matieres[0],
           domaines: [
             {
-              ...mockProgressionData.matieres[0].domaines[0],
+              ...mockProgrammationData.matieres[0].domaines[0],
               items: [],
             },
           ],
@@ -205,7 +205,7 @@ describe('ProgrammationView', () => {
 
   it('has correct CSS classes and structure', () => {
     const { container } = render(
-      <ProgrammationView {...mockProgressionData} />
+      <ProgrammationView {...mockProgrammationData} />
     );
 
     const section = container.querySelector('section');
@@ -221,7 +221,7 @@ describe('ProgrammationView', () => {
 
   it('matches snapshot', () => {
     const { container } = render(
-      <ProgrammationView {...mockProgressionData} />
+      <ProgrammationView {...mockProgrammationData} />
     );
     expect(container).toMatchSnapshot();
   });

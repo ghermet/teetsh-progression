@@ -7,7 +7,7 @@ import type { Matiere, Periode } from '../../types/programmation.types';
 /**
  * Props for the ProgrammationTable component
  */
-interface ProgressionTableProps {
+interface ProgrammationTableProps {
   /** Array of time periods that form the table columns */
   periodes: Periode[];
   /** Array of subjects containing domains and items that form the table rows */
@@ -37,7 +37,7 @@ interface ProgressionTableProps {
 export function ProgrammationTable({
   periodes,
   matieres,
-}: ProgressionTableProps) {
+}: ProgrammationTableProps) {
   return (
     <div className="relative overflow-x-auto">
       <div className="min-w-max">
@@ -45,8 +45,8 @@ export function ProgrammationTable({
           <caption className="sr-only">
             Tableau de programmation des matières par périodes
           </caption>
-          <ProgressionTableHead periodes={periodes} />
-          <ProgressionTableBody matieres={matieres} periodes={periodes} />
+          <ProgrammationTableHead periodes={periodes} />
+          <ProgrammationTableBody matieres={matieres} periodes={periodes} />
         </table>
       </div>
     </div>
@@ -60,7 +60,7 @@ export function ProgrammationTable({
  * @param props.periodes - Time periods to display as column headers
  * @returns Table header with period information and dates
  */
-function ProgressionTableHead({ periodes }: { periodes: Periode[] }) {
+function ProgrammationTableHead({ periodes }: { periodes: Periode[] }) {
   const sortedPeriodes = periodes.sort((a, b) => a.position - b.position);
 
   return (
@@ -134,7 +134,7 @@ function ProgressionTableHead({ periodes }: { periodes: Periode[] }) {
  * @param props.periodes - Time periods for column positioning
  * @returns Table body with domain rows and positioned learning items
  */
-function ProgressionTableBody({
+function ProgrammationTableBody({
   matieres,
   periodes,
 }: {
