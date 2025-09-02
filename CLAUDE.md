@@ -16,10 +16,12 @@ This is a React educational programmation visualization application built with T
 ### Building and Testing
 
 - `npm run build` - Build for production (runs Vite build + TypeScript compilation)
-- `npm run test` - Run unit tests with Vitest
-- `npm run test:e2e` - Run end-to-end tests with Playwright
-- `npm run test:e2e:ui` - Run Playwright tests with UI mode
-- `npm run test:e2e:headed` - Run Playwright tests in headed mode
+- `npm run test` - Run all unit tests with Vitest
+- `npm run test -- src/components/programmation` - Run unit tests for specific component directory
+- `npm run test -- ProgrammationView` - Run tests matching specific pattern
+- `npm run test:e2e` - Run end-to-end tests with Playwright (Chromium, Firefox, Safari)
+- `npm run test:e2e:ui` - Run Playwright tests with interactive UI mode
+- `npm run test:e2e:headed` - Run Playwright tests in headed mode with single worker
 
 ### Code Quality
 
@@ -105,9 +107,10 @@ The transformation logic converts the hierarchical API structure into timeline b
 ### Development Tools
 
 - TanStack Router DevTools and React DevTools integrated
-- TypeScript with strict mode enabled
-- React Compiler for optimization
+- TypeScript with strict mode enabled and zero unused variable enforcement
+- React Compiler enabled with Babel plugin for optimization
 - Web Vitals reporting available
+- Vitest testing integrated with Vite config (no separate vitest.config.ts needed)
 
 ## Testing Setup
 
@@ -121,14 +124,12 @@ The transformation logic converts the hierarchical API structure into timeline b
 
 ### End-to-End Testing
 
-- Uses Playwright for browser automation testing
-- Configured to test against Chromium by default on port 3000
+- Uses Playwright for browser automation testing across multiple browsers
+- Configured to test against Chromium, Firefox, and Safari browsers
+- Tests run on port 3000 with automatic dev server startup
 - Tests located in `playwright/tests/` directory with Page Object Model pattern
-- Automatically starts dev server before running tests
 - Mock API responses using fixtures in `playwright/fixtures/responses/`
-- Key test files:
-  - `programmation.spec.ts` - Main programmation functionality tests
-  - `programmation-timeline-navigation.spec.ts` - Timeline scrolling and navigation tests
+- Key test file: `programmation.spec.ts` - Main programmation functionality and timeline tests
 - Run tests: `npm run test:e2e`
 - Interactive development: `npm run test:e2e:ui`
 - Headed mode for debugging: `npm run test:e2e:headed`
